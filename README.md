@@ -51,7 +51,7 @@
         .main-container {
             background-color: rgba(0, 0, 0, 0.8);
             padding: 30px;
-            border-radius: 15px;
+            border-radius: 0px;
             text-align: center;
             width: 400px;
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
