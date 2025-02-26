@@ -1,8 +1,16 @@
-<html lang="fr"> 
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Bikouquête</title>
     <style>
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('https://github.com/bikoulove/La-Bikouquete/raw/refs/heads/main/SaucerBB.woff2') format('woff2'),
+                 url('https://github.com/bikoulove/La-Bikouquete/raw/refs/heads/main/SaucerBB.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
         body {
             background-image: url('https://raw.githubusercontent.com/bikoulove/La-Bikouquete/refs/heads/main/maxresdefault.jpg');
             background-size: cover;
@@ -25,25 +33,8 @@
             50% { transform: scale(1); }
             70% { transform: scale(1.02); }
             100% { transform: scale(1); }
-                    }
-        @font-face {
-    font-family: 'CustomFont';
-    src: url('https://github.com/bikoulove/La-Bikouquete/raw/refs/heads/main/SaucerBB.ttf.woff2') format('woff2'),
-         url('https://github.com/bikoulove/La-Bikouquete/raw/refs/heads/main/SaucerBB.ttf.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-        .background-image {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: inherit;
-            background-size: cover;
-            background-position: center;
-            animation: heartbeat 2s infinite;
         }
+        /* Effet heartbeat sur le fond */
         .background-container {
             position: fixed;
             top: 0;
@@ -53,8 +44,9 @@
             background-image: inherit;
             background-size: cover;
             background-position: center;
-            animation: heartbeat 2s infinite;
+            animation: heartbeat 2.5s infinite;
         }
+        /* Conteneur principal */
         .main-container {
             background-color: rgba(0, 0, 0, 0.8);
             padding: 30px;
@@ -62,7 +54,7 @@
             text-align: center;
             width: 400px;
             box-shadow: 0 0 30px rgba(0, 255, 0, 0.7);
-            animation: heartbeat 4s infinite;
+            animation: heartbeat 2.5s infinite;
         }
         .main-container p {
             font-size: 1.8rem;
@@ -78,7 +70,7 @@
             width: 250px;
             text-align: center;
         }
-        button {
+     button {
             background-color: #00FF00;
             padding: 15px 30px;
             font-size: 1.5rem;
@@ -104,16 +96,15 @@
 <body>
     <div class="background-container"></div>
     <div class="main-container">
-        <p style="font-size: 2rem; font-weight: bold;">LA BIKOUQUÊTE</p>
+        <p>La Bikouquête</p>
         <p>Entrez le code secret pour avancer</p>
         <input type="text" id="codeInput" placeholder="Code secret...">
         <br>
         <button onclick="checkCode()">Valider</button>
         <p id="result"></p>
     </div>
-    <!-- Audio caché -->
-    <audio id="heartbeatSound" class="hidden-audio" loop>
-        <source src="URL_DU_SON_AJOUTER" type="audio/mpeg">
+    <audio class="hidden-audio" autoplay loop>
+        <source src="URL_DE_TON_SON.mp3" type="audio/mpeg">
     </audio>
     <script>
         function checkCode() {
