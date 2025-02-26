@@ -21,40 +21,28 @@
             align-items: center;
             flex-direction: column;
             overflow: hidden;
+            position: relative;
         }
-        /* Effet d'ondulation qui suit le curseur */
-        body::after {
+        /* Effet de fondu blanc lors du chargement */
+        body::before {
             content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            background: radial-gradient(circle, rgba(0, 255, 0, 0.5), rgba(0, 255, 255, 0.5));
-            mix-blend-mode: multiply;
-            animation: ripple 2s infinite linear;
+            background-color: white;
+            animation: fadeIn 1.5s ease-in-out;
         }
-        @keyframes ripple {
-            0% {
-                transform: scale(0);
+        @keyframes fadeIn {
+            from {
                 opacity: 1;
             }
-            100% {
-                transform: scale(1);
+            to {
                 opacity: 0;
             }
         }
-        /* Titre principal stylisé */
-        h1 {
-            text-align: center;
-            font-size: 4rem;
-            margin-bottom: 20px;
-            text-shadow: 0 0 15px rgba(0, 255, 0, 1), 0 0 30px rgba(0, 255, 0, 0.7);
-            color: white;
-            font-weight: bold;
-        }
-        /* Conteneur pour le code secret */
+        /* Conteneur unique pour le texte */
         .code-container {
             background-color: rgba(0, 0, 0, 0.7);
             padding: 30px;
@@ -62,6 +50,11 @@
             border-radius: 15px;
             text-align: center;
             box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
+        }
+        /* Titre principal */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
         /* Champs de texte */
         input {
@@ -92,23 +85,34 @@
             background-color: #00cc00;
             box-shadow: 0 0 20px rgba(0, 255, 0, 1);
         }
-        /* Animation de transition de fond lors du chargement */
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
+        /* Effet d'ondulation */
+        body::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: radial-gradient(circle, rgba(0, 255, 0, 0.5), rgba(0, 255, 255, 0.5));
+            mix-blend-mode: multiply;
+            animation: ripple 2s infinite linear;
         }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
+        @keyframes ripple {
+            0% {
+                transform: scale(0);
                 opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0;
             }
         }
     </style>
 </head>
-<body class="fade-in">
-    <h1>Bienvenue dans la Bikouquête</h1>
+<body>
     <div class="code-container">
+        <h1>Bienvenue dans la Bikouquête</h1>
         <p>Entrez le code secret pour avancer</p>
         <input type="text" id="codeInput" placeholder="Code secret...">
         <br>
