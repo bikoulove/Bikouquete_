@@ -20,45 +20,17 @@
             flex-direction: column;
             overflow: hidden;
             position: relative;
-            animation: heartbeat 2s infinite;
-        }
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            20%, 60% { transform: scale(1.05); }
-            40%, 80% { transform: scale(1); }
-        }
-        /* Effet de fondu au blanc au chargement */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: pink;
-            animation: fadeIn 1.5s ease-in-out forwards;
-        }
-        @keyframes fadeIn {
-            0% { opacity: 1; }
-            100% { opacity: 0; }
-        }
-        /* Titre dans le cadre noir */
-        .title-container {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 15px 30px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-            margin-bottom: 20px;
+            animation: heartbeat 3s infinite;
         } 
-        h1 {
-            font-size: 4rem;
-            color: white;
-            text-shadow: 4px 4px 0px black, -4px -4px 0px black;
-            margin: 0;
-        }
-        /* Conteneur du code */
-        .code-container {
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            40% { transform: scale(1.05); }
+            50% { transform: scale(1); }
+            90% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        } 
+        /* Conteneur du cadre */
+        .title-container {
             background-color: rgba(0, 0, 0, 0.7);
             padding: 30px;
             border: 3px solid #00FF00;
@@ -68,7 +40,14 @@
             width: 350px;
             position: relative;
             z-index: 10;
-        }
+        }  
+        /* Titre sans contour noir */
+        .title-container h1 {
+            font-size: 3rem;
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+        } 
         /* Champ de texte */
         input {
             padding: 15px;
@@ -107,8 +86,6 @@
 <body>
     <div class="title-container">
         <h1>La Bikouquête</h1>
-    </div>
-    <div class="code-container">
         <p>Entrez le code secret pour avancer</p>
         <input type="text" id="codeInput" placeholder="Code secret...">
         <br>
