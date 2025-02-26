@@ -18,6 +18,7 @@
             align-items: center;
             flex-direction: column;
             text-align: center;
+            position: relative;
         }
         h1 {
             font-size: 50px;
@@ -67,6 +68,19 @@
         .code-section button:hover {
             background-color: #ff4da6;
         }
+        /* Effet d'ondulation autour du curseur */
+        .cursor-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 80%);
+            opacity: 0;
+            animation: ripple-animation 1.5s infinite;
+            transition: all 0.3s ease;
+        }
         /* Personnages animés */
         .characters {
             position: absolute;
@@ -95,6 +109,21 @@
                 transform: translateY(0);
             }
         }
+        /* Animation de l'effet d'ondulation du curseur */
+        @keyframes ripple-animation {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.5);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -109,13 +138,31 @@
     </div>
     <!-- Personnages animés en bas de la page -->
     <div class="characters">
-        <img src="personnage-blond.gif" alt="Personnage blond animé" class="character">
-        <img src="personnage-brun.gif" alt="Personnage brun animé" class="character">
+        <img src="personnage-blond.png" alt="Personnage blond animé" class="character">
+        <img src="personnage-brun.png" alt="Personnage brun animé" class="character">
     </div>
+    <!-- Effet d'ondulation autour du curseur -->
+    <div class="cursor-wave"></div>
     <script>
+        // Détection du mouvement de la souris et ajout de l'ondulation
+        document.body.addEventListener('mousemove', function (e) {
+            const wave = document.querySelector('.cursor-wave');
+            const x = e.clientX;
+            const y = e.clientY;
+            wave.style.left = x - 50 + 'px';
+            wave.style.top = y - 50 + 'px';
+            wave.style.opacity = 1;
+        });
+        // Fonction pour changer la couleur de fond au survol de la souris
+        document.body.addEventListener('mousemove', function () {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            document.body.style.background = `linear-gradient(135deg, rgb(${r}, ${g}, ${b}), #9e3c9f)`;
+        });
         function checkCode() {
             const code = document.getElementById('codeInput').value;
-            const correctCode = "XXX"; // Remplace par ton vrai code secret
+            const correctCode = "Victoire"; // Remplace par ton vrai code secret
             if (code === correctCode) {
                 window.location.href = "page2.html"; // Redirige vers la deuxième page
             } else {
