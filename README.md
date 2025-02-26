@@ -50,6 +50,7 @@
             border-radius: 15px;
             text-align: center;
             box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
+            width: 350px;
         }
         /* Titre principal */
         h1 {
@@ -108,6 +109,23 @@
                 opacity: 0;
             }
         }
+        /* Zone sonore */
+        .audio-container {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 3px solid #00FF00;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+            width: 300px;
+            text-align: center;
+        }
+        audio {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -118,6 +136,13 @@
         <br>
         <button onclick="checkCode()">Valider</button>
         <p id="result"></p>
+    </div>
+    <!-- Zone sonore -->
+    <div class="audio-container">
+        <audio controls>
+            <source src="your-audio-file.mp3" type="audio/mp3">
+            Votre navigateur ne supporte pas la balise audio.
+        </audio>
     </div>
     <script>
         function checkCode() {
