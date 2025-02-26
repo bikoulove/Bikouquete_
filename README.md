@@ -2,11 +2,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Bikouquête</title>
     <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
     <style>
         body {
-            /* Fond de la page avec image depuis GitHub */
-            background-image: url('https://raw.githubusercontent.com/bikoulove/La-Bikouquete/refs/heads/main/maxresdefault.jpg'); /* URL de l'image */
+            background-image: url('https://raw.githubusercontent.com/bikoulove/La-Bikouquete/refs/heads/main/maxresdefault.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -22,7 +22,7 @@
             overflow: hidden;
             position: relative;
         }
-        /* Effet de fondu au blanc lors du chargement (1.5 seconde) */
+        /* Effet de fondu au blanc lors du chargement (1.5s) */
         body::before {
             content: "";
             position: absolute;
@@ -34,14 +34,34 @@
             animation: fadeIn 1.5s ease-in-out forwards;
         }
         @keyframes fadeIn {
-            0% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
+            0% { opacity: 1; }
+            100% { opacity: 0; }
         }
-        /* Conteneur unique pour le texte */
+        /* Effet d'ondulation lent blanc et gris */
+        .wave {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(128,128,128,0.2) 100%);
+            border-radius: 50%;
+            opacity: 0.7;
+            pointer-events: none;
+            animation: slowWaves 6s infinite ease-in-out;
+            transition: transform 0.2s ease-out;
+        }
+@keyframes slowWaves {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+        }
+        /* Titre centré avec contour noir */
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            color: white;
+            text-shadow: 3px 3px 0px black, -3px -3px 0px black, -3px 3px 0px black, 3px -3px 0px black;
+            margin-bottom: 20px;
+        }
+        /* Conteneur pour le code */
         .code-container {
             background-color: rgba(0, 0, 0, 0.7);
             padding: 30px;
@@ -50,11 +70,6 @@
             text-align: center;
             box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
             width: 350px;
-        }
-        /* Titre principal */
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
         }
         /* Champs de texte */
         input {
@@ -68,7 +83,7 @@
             width: 250px;
             text-align: center;
         }
-        /* Bouton de validation */
+        /* Bouton */
         button {
             background-color: #00FF00;
             padding: 15px 30px;
@@ -84,29 +99,6 @@
         button:hover {
             background-color: #00cc00;
             box-shadow: 0 0 20px rgba(0, 255, 0, 1);
-        }
-        /* Effet d'ondulation */
-        body::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            background: radial-gradient(circle, rgba(0, 255, 0, 0.5), rgba(0, 255, 255, 0.5));
-            mix-blend-mode: multiply;
-            animation: ripple 2s infinite linear;
-        }
-        @keyframes ripple {
-            0% {
-                transform: scale(0);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 0;
-            }
         }
         /* Zone sonore */
         .audio-container {
@@ -128,8 +120,8 @@
     </style>
 </head>
 <body>
+    <h1>La Bikouquête</h1>
     <div class="code-container">
-        <h1>Bienvenue dans la Bikouquête</h1>
         <p>Entrez le code secret pour avancer</p>
         <input type="text" id="codeInput" placeholder="Code secret...">
         <br>
@@ -138,7 +130,7 @@
     </div>
     <!-- Zone sonore -->
     <div class="audio-container">
-        <audio controls>
+        <audio id="backgroundMusic" autoplay>
             <source src="your-audio-file.mp3" type="audio/mp3">
             Votre navigateur ne supporte pas la balise audio.
         </audio>
@@ -153,6 +145,24 @@
                 document.getElementById('result').innerText = "Code incorrect, réessayez.";
             }
         }
+        // Effet d'ondulation qui suit la souris
+        document.addEventListener('mousemove', function(e) {
+            let wave = document.querySelector('.wave');
+            if (!wave) {
+                wave = document.createElement('div');
+                wave.classList.add('wave');
+                document.body.appendChild(wave);
+            }
+            wave.style.left = `${e.clientX - 100}px`;
+            wave.style.top = `${e.clientY - 100}px`;
+        });
+        // Activer automatiquement la musique après 1 seconde
+        setTimeout(() => {
+            const audio = document.getElementById('backgroundMusic');
+            if (audio) {
+                audio.play().catch(error => console.log("Lecture auto bloquée par le navigateur :", error));
+            }
+        }, 1000);
     </script>
 </body>
 </html>
