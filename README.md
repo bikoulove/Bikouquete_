@@ -63,10 +63,13 @@
             border-radius: 5px;
             width: 250px;
             text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            transition: border-color 0.3s;
         }
         .code-input:focus {
             outline: none;
             box-shadow: 0 0 10px #00ff00;
+            border-color: #ffff00;
         }
         button {
             margin-top: 20px;
@@ -128,6 +131,36 @@
         .wave:hover {
             transform: scale(1.4) translate(-50%, -50%);
         }
+        .cursor-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cursor-wave div {
+            position: absolute;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            background-color: rgba(0, 255, 0, 0.4);
+            animation: cursorRipple 1.2s linear infinite;
+        }
+        @keyframes cursorRipple {
+            0% {
+                transform: scale(0.5);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -137,6 +170,7 @@
         <br>
         <button onclick="checkCode()">Valider</button>
     </div>
+    <div class="cursor-wave"></div>
     <script>
         function checkCode() {
             const code = document.getElementById('codeInput').value;
@@ -148,6 +182,15 @@
                 alert("Code incorrect, réessayez !");
             }
         }
+        // Ondulations suivant le curseur
+        document.body.addEventListener("mousemove", function(event) {
+            const cursorWave = document.querySelector('.cursor-wave');
+            const waveDiv = document.createElement('div');
+            waveDiv.style.top = `${event.clientY - 40}px`;
+            waveDiv.style.left = `${event.clientX - 40}px`;
+            cursorWave.appendChild(waveDiv);
+            setTimeout(() => waveDiv.remove(), 1200);
+        });
     </script>
 </body>
 </html>
