@@ -97,7 +97,7 @@
 <body>
     <div class="background-container"></div>
     <div class="main-container">
-        <p style="font-size: 2rem; font-weight: bold;">La Bikouquête</p>
+        <p style="font-size: 2rem; font-weight: bold;">LA BIKOUQUÊTEe</p>
         <p>Entrez le code secret pour avancer</p>
         <input type="text" id="codeInput" placeholder="Code secret...">
         <br>
