@@ -11,28 +11,37 @@
             padding: 0;
             font-family: 'Honk', sans-serif;
             overflow: hidden;
-            color: #fff;
-            background-color: black;
-            animation: fadeIn 1s forwards;
+            background: linear-gradient(135deg, #1a1a1a, #ff00ff, #00ff00, #0000ff);
+            background-size: 300% 300%;
+            animation: gradientMove 6s ease infinite;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
         }
-        @keyframes fadeIn {
+        @keyframes gradientMove {
             0% {
-                background: transparent;
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
             }
             100% {
-                background: black;
+                background-position: 0% 50%;
             }
         }
         h1 {
-            font-size: 4rem;
+            font-size: 5rem;
             text-align: center;
-            color: white;
+            color: #fff;
             text-transform: uppercase;
-            background: linear-gradient(45deg, #00ff00, #ffff00, #00ff00);
+            background: linear-gradient(45deg, #ff00ff, #00ff00, #0000ff);
             -webkit-background-clip: text;
             color: transparent;
             padding: 10px;
-            border: 3px solid #00ff00;
+            border: 3px solid #ff00ff;
             border-radius: 10px;
             animation: neonGlow 1.5s ease-in-out infinite alternate;
             position: relative;
@@ -40,25 +49,26 @@
         }
         @keyframes neonGlow {
             0% {
-                text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #ffff00, 0 0 30px #00ff00;
+                text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #00ff00, 0 0 30px #ff00ff;
             }
             100% {
-                text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #ffff00, 0 0 50px #ffff00;
+                text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #00ff00, 0 0 50px #00ff00;
             }
         }
         .container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             text-align: center;
-            z-index: 10;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            border: 3px solid #ff00ff;
+            box-shadow: 0 0 20px #ff00ff;
+            width: 350px;
         }
         .code-input {
             margin-top: 20px;
             padding: 15px;
             font-size: 18px;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.9);
             border: 3px solid #00ff00;
             color: #00ff00;
             border-radius: 10px;
@@ -68,7 +78,7 @@
             transition: border-color 0.3s;
             box-shadow: 0 0 5px rgba(0, 255, 0, 0.6);
         }
-      .code-input:focus {
+        .code-input:focus {
             outline: none;
             box-shadow: 0 0 10px #00ff00;
             border-color: #ffff00;
@@ -88,28 +98,7 @@
         button:hover {
             background: linear-gradient(45deg, #ff6600, #ff0000);
         }
-        .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(0, 255, 0, 0.1), rgba(0, 0, 0, 0.8));
-            filter: blur(4px);
-            z-index: -1;
-            animation: cityBackground 6s infinite linear;
-        }
-        @keyframes cityBackground {
-            0% {
-                transform: scale(1) translate(0, 0);
-            }
-            50% {
-                transform: scale(1.05) translate(10%, 10%);
-            }
-            100% {
-                transform: scale(1) translate(0, 0);
-            }
-        }
+        /* Ondulations du fond */
         .wave {
             position: absolute;
             top: 50%;
@@ -133,6 +122,7 @@
                 transform: translate(-50%, -50%) scale(0.8);
             }
         }
+        /* Effet de suivi du curseur */
         .cursor-wave {
             position: absolute;
             top: 0;
@@ -163,15 +153,28 @@
                 opacity: 0;
             }
         }
-        .building-style {
-            border: 2px solid #00ff00;
-            border-radius: 10px;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.7);
-            margin-top: 20px;
-            width: 270px;
-            text-align: center;
-            box-shadow: 0 0 15px rgba(0, 255, 0, 0.6);
+        /* Style de l'arrière-plan (effet cyberpunk) */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 255, 0, 0.1), rgba(0, 0, 0, 0.8));
+            filter: blur(4px);
+            z-index: -1;
+            animation: cityBackground 6s infinite linear;
+        }
+        @keyframes cityBackground {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+            50% {
+                transform: scale(1.05) translate(10%, 10%);
+            }
+            100% {
+                transform: scale(1) translate(0, 0);
+            }
         }
     </style>
 </head>
@@ -179,11 +182,9 @@
     <div class="background"></div>
     <h1>La Bikouquête</h1>
     <div class="container">
-        <div class="building-style">
-            <input class="code-input" type="text" id="codeInput" placeholder="Entrez le code secret">
-            <br>
-            <button onclick="checkCode()">Valider</button>
-        </div>
+        <input class="code-input" type="text" id="codeInput" placeholder="Entrez le code secret">
+        <br>
+        <button onclick="checkCode()">Valider</button>
     </div>
     <div class="cursor-wave"></div>
     <script>
@@ -197,7 +198,7 @@
                 alert("Code incorrect, réessayez !");
             }
         }
-        // Ondulations suivant le curseur
+        // Effets ondulants au suivi du curseur
         document.body.addEventListener("mousemove", function(event) {
             const cursorWave = document.querySelector('.cursor-wave');
             const waveDiv = document.createElement('div');
