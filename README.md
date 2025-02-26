@@ -2,7 +2,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Bikouquête</title>
     <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
     <style>
         body {
@@ -22,7 +21,7 @@
             overflow: hidden;
             position: relative;
         }
-        /* Effet de fondu au blanc lors du chargement (1.5s) */
+        /* Effet de fondu au blanc au chargement */
         body::before {
             content: "";
             position: absolute;
@@ -37,22 +36,6 @@
             0% { opacity: 1; }
             100% { opacity: 0; }
         }
-        /* Effet d'ondulation lent blanc et gris */
-        .wave {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(128,128,128,0.2) 100%);
-            border-radius: 50%;
-            opacity: 0.7;
-            pointer-events: none;
-            animation: slowWaves 6s infinite ease-in-out;
-            transition: transform 0.2s ease-out;
-        }
-@keyframes slowWaves {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.5); }
-        }
         /* Titre centré avec contour noir */
         h1 {
             font-size: 3rem;
@@ -61,7 +44,7 @@
             text-shadow: 3px 3px 0px black, -3px -3px 0px black, -3px 3px 0px black, 3px -3px 0px black;
             margin-bottom: 20px;
         }
-        /* Conteneur pour le code */
+        /* Conteneur du code */
         .code-container {
             background-color: rgba(0, 0, 0, 0.7);
             padding: 30px;
@@ -70,8 +53,10 @@
             text-align: center;
             box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
             width: 350px;
+            position: relative;
+            z-index: 10;
         }
-        /* Champs de texte */
+        /* Champ de texte */
         input {
             padding: 15px;
             border: 2px solid #00FF00;
@@ -95,10 +80,30 @@
             color: white;
             font-weight: bold;
             box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+            position: relative;
+            z-index: 10;
         }
+        /* Effet sur le bouton au passage de la souris */
         button:hover {
             background-color: #00cc00;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 1);
+            box-shadow: 0 0 30px rgba(0, 255, 0, 1);
+            transform: scale(1.1);
+        }
+        /* Effet d'ondulation */
+        .wave {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(128,128,128,0.2) 100%);
+            border-radius: 50%;
+            opacity: 0.7;
+            pointer-events: none;
+            animation: slowWaves 6s infinite ease-in-out;
+            transition: transform 0.2s ease-out;
+        }
+        @keyframes slowWaves {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.5); }
         }
         /* Zone sonore */
         .audio-container {
@@ -117,6 +122,7 @@
         audio {
             width: 100%;
         }
+
     </style>
 </head>
 <body>
@@ -145,16 +151,24 @@
                 document.getElementById('result').innerText = "Code incorrect, réessayez.";
             }
         }
+        // Création et gestion des ondes de la page
+        const waves = [];
+        for (let i = 0; i < 5; i++) {
+            let wave = document.createElement('div');
+            wave.classList.add('wave');
+            wave.style.top = `${Math.random() * window.innerHeight}px`;
+            wave.style.left = `${Math.random() * window.innerWidth}px`;
+            document.body.appendChild(wave);
+            waves.push(wave);
+        }
         // Effet d'ondulation qui suit la souris
         document.addEventListener('mousemove', function(e) {
-            let wave = document.querySelector('.wave');
-            if (!wave) {
-                wave = document.createElement('div');
-                wave.classList.add('wave');
-                document.body.appendChild(wave);
-            }
-            wave.style.left = `${e.clientX - 100}px`;
-            wave.style.top = `${e.clientY - 100}px`;
+            waves.forEach((wave, index) => {
+                setTimeout(() => {
+                    wave.style.left = `${e.clientX - 100}px`;
+                    wave.style.top = `${e.clientY - 100}px`;
+                }, index * 100);
+            });
         });
         // Activer automatiquement la musique après 1 seconde
         setTimeout(() => {
@@ -163,6 +177,19 @@
                 audio.play().catch(error => console.log("Lecture auto bloquée par le navigateur :", error));
             }
         }, 1000);
+        // Correction du bug où la souris ne répond plus après interaction avec le champ texte
+        document.getElementById('codeInput').addEventListener('focus', () => {
+            document.body.style.cursor = 'default';
+        });
+        document.getElementById('codeInput').addEventListener('blur', () => {
+            document.body.style.cursor = 'auto';
+        });
+        document.querySelector('button').addEventListener('focus', () => {
+            document.body.style.cursor = 'default';
+        });
+        document.querySelector('button').addEventListener('blur', () => {
+            document.body.style.cursor = 'auto';
+        });
     </script>
 </body>
 </html>
