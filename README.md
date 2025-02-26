@@ -29,7 +29,12 @@
             50% { transform: scale(1); }
             90% { transform: scale(1.05); }
             100% { transform: scale(1); }
-        } 
+        }
+        .shafarik-regular {
+  font-family: "Shafarik", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
         /* Conteneur du cadre */
         .title-container {
             background-color: rgba(0, 0, 0, 0.7);
