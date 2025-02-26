@@ -3,149 +3,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* Corps de la page - Style Cyberpunk */
         body {
-            font-family: 'Press Start 2P', cursive;
             margin: 0;
             padding: 0;
-            background: #111;
+            background: #1a1a1a;
+            font-family: 'Orbitron', sans-serif;
             overflow: hidden;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-            position: relative;
-            color: #00ff99; /* Vert néon */
+            color: #fff;
+            animation: fadeIn 1s forwards; /* Ajout de l'animation fadeIn */
         }
-        h1 {
-            font-size: 60px;
-            color: #ff00ff; /* Rose néon */
-            margin-bottom: 50px;
-            text-shadow: 0 0 10px rgba(255, 0, 255, 0.8), 0 0 20px rgba(255, 0, 255, 0.6);
-            animation: glow 1.5s ease-in-out infinite alternate;
-        }
-        @keyframes glow {
+        @keyframes fadeIn {
             0% {
-                text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.5);
+                background: transparent;
             }
             100% {
-                text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8);
+                background: #ffffff; /* Fondu au blanc */
             }
         }
-        /* Zone de saisie du code secret */
-        .code-section {
-            width: 80%;
-            margin: 50px auto;
-            padding: 30px;
-            background-color: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 2px solid #00ff99;
-        }
-        .code-section input {
-            padding: 10px;
-            font-size: 20px;
-            border: 2px solid #ff00ff;
-            border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.3);
-            color: white;
-            width: 50%;
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 4rem;
             text-align: center;
-            margin-top: 10px;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #ff00cc, #00ffff);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: neonGlow 1.5s ease-in-out infinite alternate;
         }
-        .code-section button {
-            background-color: #00ff99;
-            color: black;
-            font-size: 20px;
-            padding: 10px 20px;
+        @keyframes neonGlow {
+            0% {
+                text-shadow: 0 0 5px #ff00cc, 0 0 10px #ff00cc, 0 0 15px #ff00cc, 0 0 20px #00ffff, 0 0 30px #00ffff;
+            }
+            100% {
+                text-shadow: 0 0 10px #ff00cc, 0 0 20px #ff00cc, 0 0 30px #ff00cc, 0 0 40px #00ffff, 0 0 50px #00ffff;
+            }
+        }
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+            animation: waveEffect 2s ease-in-out infinite;
+        }
+        @keyframes waveEffect {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            50% {
+                transform: translate(-50%, -50%) rotate(10deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+        }
+        .code-input {
+            margin-top: 20px;
+            padding: 15px;
+            font-size: 18px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #00ffff;
+            color: #00ffff;
+            border-radius: 5px;
+            width: 250px;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .code-input:focus {
+            outline: none;
+            box-shadow: 0 0 10px #ff00cc, 0 0 15px #ff00cc;
+        }
+        button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 18px;
+            background: linear-gradient(45deg, #ff00cc, #00ffff);
+            color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+            transition: all 0.3s ease-in-out;
         }
-        .code-section button:hover {
-            background-color: #ff00ff;
+        button:hover {
+            background: linear-gradient(45deg, #ff00cc, #ff6600);
         }
-        /* Effet d'ondulation géométrique */
-        .wave-container {
+        .background {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
+            background: url('https://cdn.pixabay.com/photo/2016/11/29/03/26/robot-1867270_960_720.jpg') no-repeat center center fixed;
+            background-size: cover;
+            filter: blur(5px);
+            z-index: -1;
+            animation: backgroundEffect 3s ease-in-out infinite alternate;
+        }
+        @keyframes backgroundEffect {
+            0% {
+                filter: blur(5px);
+            }
+            100% {
+                filter: blur(8px);
+            }
         }
         .wave {
             position: absolute;
-            width: 200%;
-            height: 200%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
             border-radius: 50%;
-            animation: wave-animation 4s infinite linear;
-            opacity: 0.5;
+            background: rgba(0, 255, 255, 0.2);
+            box-shadow: 0 0 60px rgba(0, 255, 255, 0.4);
+            animation: waveMovement 2.5s linear infinite;
         }
-        .wave:nth-child(1) {
-            background-color: rgba(0, 255, 255, 0.2);
-            animation-duration: 3.5s;
-        }
-        .wave:nth-child(2) {
-            background-color: rgba(255, 0, 255, 0.4);
-            animation-duration: 4s;
-        }
-        .wave:nth-child(3) {
-            background-color: rgba(0, 255, 255, 0.3);
-            animation-duration: 4.5s;
-        }
-        @keyframes wave-animation {
+        @keyframes waveMovement {
             0% {
-                transform: scale(0);
-                opacity: 0.5;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
             }
             100% {
-                transform: scale(1);
-                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
             }
-        }
-        /* Effet de changement de couleur */
-        body {
-            transition: background 1s ease-in-out;
         }
     </style>
 </head>
 <body>
+    <div class="background"></div>
+    <div class="wave"></div>
     <h1>La Bikouquête</h1>
-    <!-- Zone de saisie du code secret -->
-    <div class="code-section">
-        <h2>Entrez votre code secret :</h2>
-        <input type="text" id="codeInput" placeholder="Entrez le code ici">
+    <div class="container">
+        <input class="code-input" type="text" id="codeInput" placeholder="Entrez le code secret">
         <br>
         <button onclick="checkCode()">Valider</button>
-        <p id="result"></p>
-    </div>
-    <!-- Vagues animées en fond -->
-    <div class="wave-container">
-        <div class="wave"></div>
-        <div class="wave"></div>
-        <div class="wave"></div>
     </div>
     <script>
-        // Effet de changement de couleur du fond au survol de la souris
-        document.body.addEventListener('mousemove', function() {
-            const r = Math.floor(Math.random() * 256);
-            const g = Math.floor(Math.random() * 256);
-            const b = Math.floor(Math.random() * 256);
-            document.body.style.background = `linear-gradient(135deg, rgb(${r}, ${g}, ${b}), #111)`;
-        });
-        // Fonction pour vérifier le code secret
         function checkCode() {
             const code = document.getElementById('codeInput').value;
-            const correctCode = "XXX"; // Remplace avec ton vrai code secret
+            const correctCode = "xxx"; 
             if (code === correctCode) {
-                window.location.href = "page2.html"; // Redirige vers la deuxième page
+                alert("Code correct ! Vous êtes prêt pour la prochaine étape.");
+                window.location.href = "page2.html";
             } else {
-                document.getElementById('result').innerHTML = "Code incorrect, réessaie !";
+                alert("Code incorrect, réessayez !");
             }
         }
     </script>
