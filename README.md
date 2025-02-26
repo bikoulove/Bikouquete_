@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             height: 100vh;
-            font-family: 'Shafarik', sans-serif;
+            font-family: 'CustomFont', sans-serif;
             color: white;
             display: flex;
             justify-content: center;
@@ -26,6 +26,13 @@
             70% { transform: scale(1.02); }
             100% { transform: scale(1); }
                     }
+        @font-face {
+    font-family: 'CustomFont';
+    src: url('.woff2') format('woff2'),
+         url('.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
         .background-image {
             position: fixed;
             top: 0;
