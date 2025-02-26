@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             height: 100vh;
-            font-family: sans-serif;
+            font-family: Shafarik;
             color: white;
             display: flex;
             justify-content: center;
