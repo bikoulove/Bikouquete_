@@ -166,7 +166,6 @@
     <div id="intro"></div>
     <audio autoplay loop>
         <source src="your-music-file.mp3" type="audio/mpeg">
-        Votre navigateur ne supporte pas l'élément audio.
     </audio>
     <h1>La Bikouquette</h1>
     <div class="code-container">
