@@ -19,13 +19,23 @@
             overflow: hidden;
             position: relative;
         }
-        /* Effet heartbeat */
         @keyframes heartbeat {
             0% { transform: scale(1); }
             30% { transform: scale(1.02); }
             50% { transform: scale(1); }
             70% { transform: scale(1.02); }
             100% { transform: scale(1); }
+                    }
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: inherit;
+            background-size: cover;
+            background-position: center;
+            animation: heartbeat 2s infinite;
         }
         .background-container {
             position: fixed;
@@ -36,7 +46,7 @@
             background-image: inherit;
             background-size: cover;
             background-position: center;
-            animation: heartbeat 2.5s infinite;
+            animation: heartbeat 2s infinite;
         }
         .main-container {
             background-color: rgba(0, 0, 0, 0.8);
