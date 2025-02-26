@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             background-image: url('https://raw.githubusercontent.com/bikoulove/La-Bikouquete/refs/heads/main/maxresdefault.jpg');
@@ -13,7 +12,7 @@
             margin: 0;
             padding: 0;
             height: 100vh;
-            font-family: 'Orbitron', sans-serif;
+            font-family: sans-serif;
             color: white;
             display: flex;
             justify-content: center;
@@ -21,14 +20,25 @@
             flex-direction: column;
             overflow: hidden;
             position: relative;
-            animation: heartbeat 1.5s infinite;
         }
+        /* Effet heartbeat uniquement sur le background */
         @keyframes heartbeat {
             0% { transform: scale(1); }
             30% { transform: scale(1.02); }
             50% { transform: scale(1); }
             70% { transform: scale(1.02); }
             100% { transform: scale(1); }
+        }
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: inherit;
+            background-size: cover;
+            background-position: center;
+            animation: heartbeat 1.5s infinite;
         }
         .title-container {
             background-color: rgba(0, 0, 0, 0.8);
@@ -91,15 +101,13 @@
             width: 300px;
             text-align: center;
         }
-        audio {
-            width: 100%;
-        }
     </style>
 </head>
 <body>
+    <div class="background-container"></div>
     <div class="title-container">
         <h1>La Bikouquête</h1>
-    </div>
+    </div>  
     <div class="code-container">
         <p>Entrez le code secret pour avancer</p>
         <input type="text" id="codeInput" placeholder="Code secret...">
@@ -108,8 +116,10 @@
         <p id="result"></p>
     </div>
     <div class="audio-container">
-        <audio id="heartbeatSound" autoplay loop>
-            <source src="heartbeat.mp3" type="audio/mp3">
+        <p>Entrez l'URL du son :</p>
+        <input type="text" id="audioUrl" placeholder="URL du son">
+        <button onclick="playAudio()">Jouer</button>
+        <audio id="heartbeatSound" controls loop>
             Votre navigateur ne supporte pas la balise audio.
         </audio>
     </div>
@@ -123,13 +133,14 @@
                 document.getElementById('result').innerText = "Code incorrect, réessayez.";
             }
         }
-        // Activer automatiquement le son après 1 seconde (évite blocage des navigateurs)
-        setTimeout(() => {
-            const audio = document.getElementById('heartbeatSound');
-            if (audio) {
-                audio.play().catch(error => console.log("Lecture auto bloquée :", error));
+        function playAudio() {
+            const audioUrl = document.getElementById('audioUrl').value;
+            const audioElement = document.getElementById('heartbeatSound');
+            if (audioUrl) {
+                audioElement.src = audioUrl;
+                audioElement.play().catch(error => console.log("Lecture auto bloquée :", error));
             }
-        }, 1000);
+        }
     </script>
 </body>
 </html>
