@@ -48,11 +48,6 @@
             width: 400px;
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
         }
-        h1 {
-            font-size: 2.5rem;
-            color: white;
-            margin-bottom: 15px;
-        }
         .code-container {
             background-color: rgba(0, 0, 0, 0.7);
             padding: 30px;
