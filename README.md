@@ -20,6 +20,12 @@
             flex-direction: column;
             overflow: hidden;
             position: relative;
+            animation: heartbeat 2s infinite;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            20%, 60% { transform: scale(1.05); }
+            40%, 80% { transform: scale(1); }
         }
         /* Effet de fondu au blanc au chargement */
         body::before {
@@ -36,15 +42,20 @@
             0% { opacity: 1; }
             100% { opacity: 0; }
         }
-        /* Titre centré avec contour noir */
+        /* Titre dans le cadre noir */
+        .title-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            margin-bottom: 20px;
+        } 
         h1 {
             font-size: 4rem;
-            text-align: center;
             color: white;
-            text-shadow: 4px 4px 0px black, -4px -4px 0px black, -4px 4px 0px black, 4px -4px 0px black;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 10;
+            text-shadow: 4px 4px 0px black, -4px -4px 0px black;
+            margin: 0;
         }
         /* Conteneur du code */
         .code-container {
@@ -91,26 +102,12 @@
             background-color: #00cc00;
             box-shadow: 0 0 30px rgba(0, 255, 0, 1);
         }
-        /* Effet d'ondulation */
-        .wave {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(128,128,128,0.2) 100%);
-            border-radius: 50%;
-            opacity: 0.7;
-            pointer-events: none;
-            animation: slowWaves 6s infinite ease-in-out;
-            transition: transform 0.2s ease-out;
-        }
-        @keyframes slowWaves {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.5); }
-        }
     </style>
 </head>
 <body>
-    <h1>La Bikouquête</h1>
+    <div class="title-container">
+        <h1>La Bikouquête</h1>
+    </div>
     <div class="code-container">
         <p>Entrez le code secret pour avancer</p>
         <input type="text" id="codeInput" placeholder="Code secret...">
@@ -128,24 +125,6 @@
                 document.getElementById('result').innerText = "Code incorrect, réessayez.";
             }
         }
-        // Création et gestion des ondes
-        const waves = [];
-        for (let i = 0; i < 5; i++) {
-            let wave = document.createElement('div');
-            wave.classList.add('wave');
-            wave.style.top = `${Math.random() * window.innerHeight}px`;
-            wave.style.left = `${Math.random() * window.innerWidth}px`;
-            document.body.appendChild(wave);
-            waves.push(wave);
-        }
-        document.addEventListener('mousemove', function(e) {
-            waves.forEach((wave, index) => {
-                setTimeout(() => {
-                    wave.style.left = `${e.clientX - 100}px`;
-                    wave.style.top = `${e.clientY - 100}px`;
-                }, index * 100);
-            });
-        });
     </script>
 </body>
 </html>
