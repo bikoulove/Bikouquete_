@@ -6,34 +6,47 @@
     <title>La Bikouquête</title>
     <style>
         /* Police 8-bit */
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');  
         /* Corps de la page */
         body {
             font-family: 'Press Start 2P', cursive;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #ff8eb5, #7f7fff);
+            background: linear-gradient(135deg, #a3a3ff, #9e3c9f);
             animation: colorChange 2s infinite alternate;
             overflow: hidden;
         }
         /* Animation de dégradé */
         @keyframes colorChange {
             0% {
-                background: linear-gradient(135deg, #ff8eb5, #7f7fff);
+                background: linear-gradient(135deg, #a3a3ff, #9e3c9f);
             }
             50% {
-                background: linear-gradient(135deg, #ff007f, #00aaff);
+                background: linear-gradient(135deg, #cb79ff, #b04bff);
             }
             100% {
-                background: linear-gradient(135deg, #f9c7d9, #34b8db);
+                background: linear-gradient(135deg, #bb70f5, #9c49d3);
             }
         }
-        /* Titre de la page */
+        /* Titre de la page avec effet de survol */
         h1 {
             color: white;
             text-align: center;
-            font-size: 40px;
+            font-size: 60px;
             margin-top: 20px;
+            animation: textEffect 1s infinite alternate;
+        }
+        /* Effet visuel sur le titre */
+        @keyframes textEffect {
+            0% {
+                text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f;
+            }
+            50% {
+                text-shadow: 0 0 15px #4da6ff, 0 0 25px #4da6ff;
+            }
+            100% {
+                text-shadow: 0 0 20px #f7ff00, 0 0 30px #f7ff00;
+            }
         }
         /* Zone pour entrer le code secret */
         .code-section {
@@ -83,10 +96,8 @@
         .character {
             width: 80px;
             height: 80px;
-            background-color: #000;
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/60/Pixel_Art_Pikachu_8bit.svg');
-            background-size: contain;
-            background-repeat: no-repeat;
+            background-color: transparent;
+            background-size: cover;
             position: relative;
             animation: jump 1s infinite alternate;
         }
@@ -113,11 +124,11 @@
         }
         /* Personnage 1 (blond) */
         .character1 {
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/a2/Pixel_Art_8bit_Character.png');
+            background-image: url('https://via.placeholder.com/80/ffeb3b/000000?text=Blond');
         }
         /* Personnage 2 (brun) */
         .character2 {
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/06/Pixel_Art_Pikachu_8bit.svg');
+            background-image: url('https://via.placeholder.com/80/795548/000000?text=Brun');
         }
         /* Zone interactive */
         .interactive-zone {
@@ -144,11 +155,6 @@
     <div class="characters">
         <div class="character character1"></div>
         <div class="character character2"></div>
-    </div>
-    <div class="interactive-zone">
-        <h2>Discutons !</h2>
-        <p>Personnage 1: "T'as vu la nouvelle quête ?"</p>
-        <p>Personnage 2: "Ouais, je suis super excité de la commencer !" </p>
     </div>
     <script>
         function checkCode() {
