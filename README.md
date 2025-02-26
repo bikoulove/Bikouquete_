@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -21,7 +20,7 @@
             overflow: hidden;
             position: relative;
         }
-        /* Effet heartbeat uniquement sur le background */
+        /* Effet heartbeat */
         @keyframes heartbeat {
             0% { transform: scale(1); }
             30% { transform: scale(1.02); }
@@ -38,7 +37,7 @@
             background-image: inherit;
             background-size: cover;
             background-position: center;
-            animation: heartbeat 1.5s infinite;
+            animation: heartbeat 0.5s infinite;
         }
         .title-container {
             background-color: rgba(0, 0, 0, 0.8);
@@ -47,6 +46,12 @@
             text-align: center;
             width: 400px;
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+            animation: heartbeat 0.5s infinite;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 15px;
         }
         .code-container {
             background-color: rgba(0, 0, 0, 0.7);
@@ -84,17 +89,9 @@
             background-color: #00cc00;
             box-shadow: 0 0 30px rgba(0, 255, 0, 1);
         }
-        .audio-container {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
-            width: 300px;
-            text-align: center;
+        /* Masquer complètement l'audio */
+        .hidden-audio {
+            display: none;
         }
     </style>
 </head>
@@ -110,14 +107,10 @@
         <button onclick="checkCode()">Valider</button>
         <p id="result"></p>
     </div>
-    <div class="audio-container">
-        <p>Entrez l'URL du son :</p>
-        <input type="text" id="audioUrl" placeholder="URL du son">
-        <button onclick="playAudio()">Jouer</button>
-        <audio id="heartbeatSound" controls loop>
-            Votre navigateur ne supporte pas la balise audio.
-        </audio>
-    </div>
+    <!-- Audio caché -->
+    <audio id="heartbeatSound" class="hidden-audio" loop>
+        <source src="URL_DU_SON_AJOUTER" type="audio/mpeg">
+    </audio>
     <script>
         function checkCode() {
             const code = document.getElementById('codeInput').value;
@@ -126,14 +119,6 @@
                 window.location.href = "page2.html";
             } else {
                 document.getElementById('result').innerText = "Code incorrect, réessayez.";
-            }
-        }
-        function playAudio() {
-            const audioUrl = document.getElementById('audioUrl').value;
-            const audioElement = document.getElementById('heartbeatSound');
-            if (audioUrl) {
-                audioElement.src = audioUrl;
-                audioElement.play().catch(error => console.log("Lecture auto bloquée :", error));
             }
         }
     </script>
