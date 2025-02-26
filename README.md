@@ -51,7 +51,7 @@
         .main-container {
             background-color: rgba(0, 0, 0, 0.8);
             padding: 30px;
-            border-radius: 0px;
+            border-radius: 5px;
             text-align: center;
             width: 400px;
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
@@ -63,7 +63,7 @@
         input {
             padding: 15px;
             border: 2px solid #00FF00;
-            border-radius: 10px;
+            border-radius: 5px;
             background-color: transparent;
             color: white;
             font-size: 1.5rem;
@@ -76,7 +76,7 @@
             padding: 15px 30px;
             font-size: 1.5rem;
             border: none;
-            border-radius: 0px;
+            border-radius: 5px;
             cursor: pointer;
             transition: 0.3s;
             color: white;
@@ -97,7 +97,7 @@
 <body>
     <div class="background-container"></div>
     <div class="main-container">
-        <p style="font-size: 2rem; font-weight: bold;">LA BIKOUQUÊTEe</p>
+        <p style="font-size: 2rem; font-weight: bold;">LA BIKOUQUÊTE</p>
         <p>Entrez le code secret pour avancer</p>
         <input type="text" id="codeInput" placeholder="Code secret...">
         <br>
