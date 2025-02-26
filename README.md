@@ -94,7 +94,7 @@
 <body>
     <div class="title-container">
         <h1>La Bikouquête</h1>
-        <p>Entrez le code secret pour avancer</p>
+        <p>Entre le code secret pour continuer :p</p>
         <input type="text" id="codeInput" placeholder="Code secret...">
         <br>
         <button onclick="checkCode()">Valider</button>
