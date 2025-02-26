@@ -7,7 +7,7 @@
     <style>
         body {
             /* Ajout de l'image en fond */
-            background-image: url('https://raw.githubusercontent.com/bikoulove/La-Bikouquete/refs/heads/main/neons-rue-japonais-dans-nuit_52683-46238.avif'); /* Remplacer par l'URL de l'image */
+            background-image: url('https://raw.githubusercontent.com/bikoulove/La-Bikouquete/refs/heads/main/maxresdefault.jpg'); /* Remplacer par l'URL de l'image */
             background-size: cover;  /* L'image couvre toute la page */
             background-position: center;
             background-attachment: fixed;
