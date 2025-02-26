@@ -28,8 +28,8 @@
                     }
         @font-face {
     font-family: 'CustomFont';
-    src: url('.woff2') format('woff2'),
-         url('.woff') format('woff');
+    src: url('https://github.com/bikoulove/La-Bikouquete/raw/refs/heads/main/SaucerBB.ttf.woff2') format('woff2'),
+         url('https://github.com/bikoulove/La-Bikouquete/raw/refs/heads/main/SaucerBB.ttf.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
