@@ -38,11 +38,13 @@
         }
         /* Titre centré avec contour noir */
         h1 {
-            font-size: 3rem;
+            font-size: 4rem;
             text-align: center;
             color: white;
-            text-shadow: 3px 3px 0px black, -3px -3px 0px black, -3px 3px 0px black, 3px -3px 0px black;
+            text-shadow: 4px 4px 0px black, -4px -4px 0px black, -4px 4px 0px black, 4px -4px 0px black;
             margin-bottom: 20px;
+            position: relative;
+            z-index: 10;
         }
         /* Conteneur du code */
         .code-container {
@@ -85,9 +87,9 @@
         }
         /* Effet sur le bouton au passage de la souris */
         button:hover {
+            transform: scale(0.75);
             background-color: #00cc00;
             box-shadow: 0 0 30px rgba(0, 255, 0, 1);
-            transform: scale(1.1);
         }
         /* Effet d'ondulation */
         .wave {
@@ -105,24 +107,6 @@
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.5); }
         }
-        /* Zone sonore */
-        .audio-container {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border: 3px solid #00FF00;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
-            width: 300px;
-            text-align: center;
-        }
-        audio {
-            width: 100%;
-        }
-
     </style>
 </head>
 <body>
@@ -134,24 +118,17 @@
         <button onclick="checkCode()">Valider</button>
         <p id="result"></p>
     </div>
-    <!-- Zone sonore -->
-    <div class="audio-container">
-        <audio id="backgroundMusic" autoplay>
-            <source src="your-audio-file.mp3" type="audio/mp3">
-            Votre navigateur ne supporte pas la balise audio.
-        </audio>
-    </div>
     <script>
         function checkCode() {
             const code = document.getElementById('codeInput').value;
-            const correctCode = "Bikou123"; // Code secret pour la page suivante
+            const correctCode = "Bikou123";
             if (code === correctCode) {
-                window.location.href = "page2.html"; // Redirige vers une nouvelle page
+                window.location.href = "page2.html";
             } else {
                 document.getElementById('result').innerText = "Code incorrect, réessayez.";
             }
         }
-        // Création et gestion des ondes de la page
+        // Création et gestion des ondes
         const waves = [];
         for (let i = 0; i < 5; i++) {
             let wave = document.createElement('div');
@@ -161,7 +138,6 @@
             document.body.appendChild(wave);
             waves.push(wave);
         }
-        // Effet d'ondulation qui suit la souris
         document.addEventListener('mousemove', function(e) {
             waves.forEach((wave, index) => {
                 setTimeout(() => {
@@ -169,26 +145,6 @@
                     wave.style.top = `${e.clientY - 100}px`;
                 }, index * 100);
             });
-        });
-        // Activer automatiquement la musique après 1 seconde
-        setTimeout(() => {
-            const audio = document.getElementById('backgroundMusic');
-            if (audio) {
-                audio.play().catch(error => console.log("Lecture auto bloquée par le navigateur :", error));
-            }
-        }, 1000);
-        // Correction du bug où la souris ne répond plus après interaction avec le champ texte
-        document.getElementById('codeInput').addEventListener('focus', () => {
-            document.body.style.cursor = 'default';
-        });
-        document.getElementById('codeInput').addEventListener('blur', () => {
-            document.body.style.cursor = 'auto';
-        });
-        document.querySelector('button').addEventListener('focus', () => {
-            document.body.style.cursor = 'default';
-        });
-        document.querySelector('button').addEventListener('blur', () => {
-            document.body.style.cursor = 'auto';
         });
     </script>
 </body>
