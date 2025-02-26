@@ -1,41 +1,49 @@
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Bikouquête - Cyberpunk</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: #1a1a1a;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Courier New', Courier, monospace;
             overflow: hidden;
             color: #fff;
-            animation: fadeIn 1s forwards; /* Ajout de l'animation fadeIn */
+            background-color: black;
+            animation: fadeIn 1s forwards;
         }
         @keyframes fadeIn {
             0% {
                 background: transparent;
             }
             100% {
-                background: #ffffff; /* Fondu au blanc */
+                background: black;
             }
         }
         h1 {
-            font-family: 'Press Start 2P', cursive;
+            font-family: 'Courier New', Courier, monospace;
             font-size: 4rem;
             text-align: center;
+            color: white;
             text-transform: uppercase;
-            background: linear-gradient(45deg, #ff00cc, #00ffff);
+            background: linear-gradient(45deg, #00ff00, #ffff00, #00ff00);
             -webkit-background-clip: text;
             color: transparent;
+            padding: 10px;
+            border: 3px solid #00ff00;
+            border-radius: 10px;
             animation: neonGlow 1.5s ease-in-out infinite alternate;
+            position: relative;
+            z-index: 2;
         }
         @keyframes neonGlow {
             0% {
-                text-shadow: 0 0 5px #ff00cc, 0 0 10px #ff00cc, 0 0 15px #ff00cc, 0 0 20px #00ffff, 0 0 30px #00ffff;
+                text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #ffff00, 0 0 30px #00ff00;
             }
             100% {
-                text-shadow: 0 0 10px #ff00cc, 0 0 20px #ff00cc, 0 0 30px #ff00cc, 0 0 40px #00ffff, 0 0 50px #00ffff;
+                text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #ffff00, 0 0 50px #ffff00;
             }
         }
         .container {
@@ -45,49 +53,36 @@
             transform: translate(-50%, -50%);
             text-align: center;
             z-index: 10;
-            animation: waveEffect 2s ease-in-out infinite;
-        }
-        @keyframes waveEffect {
-            0% {
-                transform: translate(-50%, -50%) rotate(0deg);
-            }
-            50% {
-                transform: translate(-50%, -50%) rotate(10deg);
-            }
-            100% {
-                transform: translate(-50%, -50%) rotate(0deg);
-            }
         }
         .code-input {
             margin-top: 20px;
             padding: 15px;
             font-size: 18px;
             background: rgba(0, 0, 0, 0.6);
-            border: 2px solid #00ffff;
-            color: #00ffff;
+            border: 2px solid #00ff00;
+            color: #00ff00;
             border-radius: 5px;
             width: 250px;
             text-align: center;
-            font-family: 'Courier New', Courier, monospace;
         }
         .code-input:focus {
             outline: none;
-            box-shadow: 0 0 10px #ff00cc, 0 0 15px #ff00cc;
+            box-shadow: 0 0 10px #00ff00;
         }
         button {
             margin-top: 20px;
             padding: 15px 30px;
             font-size: 18px;
-            background: linear-gradient(45deg, #ff00cc, #00ffff);
+            background: linear-gradient(45deg, #00ff00, #ffff00);
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Courier New', Courier, monospace;
             transition: all 0.3s ease-in-out;
         }
         button:hover {
-            background: linear-gradient(45deg, #ff00cc, #ff6600);
+            background: linear-gradient(45deg, #ff6600, #ff0000);
         }
         .background {
             position: absolute;
@@ -95,18 +90,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://cdn.pixabay.com/photo/2016/11/29/03/26/robot-1867270_960_720.jpg') no-repeat center center fixed;
-            background-size: cover;
-            filter: blur(5px);
+            background: radial-gradient(circle, rgba(0, 255, 0, 0.2), rgba(0, 0, 0, 0.8));
+            filter: blur(3px);
             z-index: -1;
-            animation: backgroundEffect 3s ease-in-out infinite alternate;
+            animation: waveEffect 5s infinite linear;
         }
-        @keyframes backgroundEffect {
+        @keyframes waveEffect {
             0% {
-                filter: blur(5px);
+                transform: scale(1);
             }
             100% {
-                filter: blur(8px);
+                transform: scale(1.1);
             }
         }
         .wave {
@@ -117,8 +111,8 @@
             width: 500px;
             height: 500px;
             border-radius: 50%;
-            background: rgba(0, 255, 255, 0.2);
-            box-shadow: 0 0 60px rgba(0, 255, 255, 0.4);
+            background: rgba(0, 255, 0, 0.2);
+            box-shadow: 0 0 60px rgba(0, 255, 0, 0.4);
             animation: waveMovement 2.5s linear infinite;
         }
         @keyframes waveMovement {
@@ -132,11 +126,13 @@
                 transform: translate(-50%, -50%) scale(0.8);
             }
         }
+        .wave:hover {
+            transform: scale(1.4) translate(-50%, -50%);
+        }
     </style>
 </head>
 <body>
     <div class="background"></div>
-    <div class="wave"></div>
     <h1>La Bikouquête</h1>
     <div class="container">
         <input class="code-input" type="text" id="codeInput" placeholder="Entrez le code secret">
@@ -149,7 +145,7 @@
             const correctCode = "xxx"; 
             if (code === correctCode) {
                 alert("Code correct ! Vous êtes prêt pour la prochaine étape.");
-                window.location.href = "page2.html";
+                window.location.href = "page2.html"; // Redirection vers la page 2
             } else {
                 alert("Code incorrect, réessayez !");
             }
