@@ -5,58 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Bikouquête</title>
     <style>
-        /* Police 8-bit */
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');  
         /* Corps de la page */
         body {
             font-family: 'Press Start 2P', cursive;
             margin: 0;
             padding: 0;
             background: linear-gradient(135deg, #a3a3ff, #9e3c9f);
-            animation: colorChange 2s infinite alternate;
             overflow: hidden;
-        }
-        /* Animation de dégradé */
-        @keyframes colorChange {
-            0% {
-                background: linear-gradient(135deg, #a3a3ff, #9e3c9f);
-            }
-            50% {
-                background: linear-gradient(135deg, #cb79ff, #b04bff);
-            }
-            100% {
-                background: linear-gradient(135deg, #bb70f5, #9c49d3);
-            }
-        }
-        /* Titre de la page avec effet de survol */
-        h1 {
-            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             text-align: center;
-            font-size: 60px;
-            margin-top: 20px;
-            animation: textEffect 1s infinite alternate;
         }
-        /* Effet visuel sur le titre */
-        @keyframes textEffect {
+        h1 {
+            font-size: 50px;
+            color: #ffffff;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
             0% {
-                text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f;
-            }
-            50% {
-                text-shadow: 0 0 15px #4da6ff, 0 0 25px #4da6ff;
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.5);
             }
             100% {
-                text-shadow: 0 0 20px #f7ff00, 0 0 30px #f7ff00;
+                text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8);
             }
         }
-        /* Zone pour entrer le code secret */
+        /* Zone de code secret */
         .code-section {
             width: 80%;
-            margin: 100px auto;
+            margin: 50px auto;
             padding: 30px;
             background-color: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
             border-radius: 20px;
-            text-align: center;
         }
         .code-section input {
             padding: 10px;
@@ -82,62 +67,33 @@
         .code-section button:hover {
             background-color: #ff4da6;
         }
-        /* Personnages animés en bas de la page */
+        /* Personnages animés */
         .characters {
-            position: fixed;
-            bottom: 10px;
-            left: 0;
-            right: 0;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
             justify-content: space-between;
-            padding: 0 20px;
-            animation: move 4s linear infinite;
+            width: 60%;
         }
         .character {
             width: 80px;
-            height: 80px;
-            background-color: transparent;
-            background-size: cover;
+            height: 120px;
             position: relative;
-            animation: jump 1s infinite alternate;
+            animation: moveCharacter 1.5s linear infinite alternate;
         }
-        /* Animation de saut des personnages */
-        @keyframes jump {
+        /* Animation de mouvement des personnages */
+        @keyframes moveCharacter {
             0% {
-                bottom: 0;
-            }
-            100% {
-                bottom: 10px;
-            }
-        }
-        /* Animation de déplacement des personnages */
-        @keyframes move {
-            0% {
-                transform: translateX(0);
+                transform: translateY(0);
             }
             50% {
-                transform: translateX(300px);
+                transform: translateY(-10px);
             }
             100% {
-                transform: translateX(0);
+                transform: translateY(0);
             }
-        }
-        /* Personnage 1 (blond) */
-        .character1 {
-            background-image: url('https://via.placeholder.com/80/ffeb3b/000000?text=Blond');
-        }
-        /* Personnage 2 (brun) */
-        .character2 {
-            background-image: url('https://via.placeholder.com/80/795548/000000?text=Brun');
-        }
-        /* Zone interactive */
-        .interactive-zone {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
         }
     </style>
 </head>
@@ -153,8 +109,8 @@
     </div>
     <!-- Personnages animés en bas de la page -->
     <div class="characters">
-        <div class="character character1"></div>
-        <div class="character character2"></div>
+        <img src="personnage-blond.gif" alt="Personnage blond animé" class="character">
+        <img src="personnage-brun.gif" alt="Personnage brun animé" class="character">
     </div>
     <script>
         function checkCode() {
