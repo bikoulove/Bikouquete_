@@ -22,7 +22,7 @@
             overflow: hidden;
             position: relative;
         }
-        /* Effet de fondu blanc lors du chargement */
+        /* Effet de fondu au blanc lors du chargement (1.5 seconde) */
         body::before {
             content: "";
             position: absolute;
@@ -34,10 +34,10 @@
             animation: fadeIn 1.5s ease-in-out forwards;
         }
         @keyframes fadeIn {
-            from {
+            0% {
                 opacity: 1;
             }
-            to {
+            100% {
                 opacity: 0;
             }
         }
