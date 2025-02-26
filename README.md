@@ -1,11 +1,9 @@
-<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Bikouquête - Personnages Manga Animés</title>
+    <title>La Bikouquette</title>
     <style>
-        /* Style global de la page */
         body {
             margin: 0;
             padding: 0;
@@ -26,6 +24,18 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+        #intro {
+            position: absolute;
+            background-color: white;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            animation: fadeOut 2s forwards;
+        }
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; display: none; }
+        }
         h1 {
             font-size: 4em;
             font-weight: bold;
@@ -37,84 +47,6 @@
             0% { color: #ff4da6; }
             50% { color: #7f7fff; }
             100% { color: #ff8eb5; }
-        }
-        h1::after {
-            content: "⚡";
-            font-size: 1.5em;
-            color: #fff;
-            animation: blink 1s step-end infinite;
-        }
-        .character-container {
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-            padding: 20px;
-            animation: moveCharacters 5s linear infinite;
-        }
-        @keyframes moveCharacters {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        .character {
-            width: 50px;
-            height: 80px;
-            background-color: #fff;
-            border-radius: 10px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            animation: running 0.8s steps(3) infinite;
-        }
-        @keyframes running {
-            from { transform: translateX(0); }
-            to { transform: translateX(100px); }
-        }
-        .head {
-            width: 30px;
-            height: 30px;
-            background-color: #ffe6e6;
-            border-radius: 50%;
-            position: absolute;
-            top: 5px;
-            left: 10px;
-        }
-        .eye {
-            width: 8px;
-            height: 8px;
-            background-color: #000;
-            border-radius: 50%;
-            position: absolute;
-        }
-        .eye.left { left: 7px; top: 8px; }
-        .eye.right { right: 7px; top: 8px; }
-        .body {
-            width: 40px;
-            height: 40px;
-            background-color: #ff99cc;
-            border-radius: 8px;
-            position: absolute;
-            bottom: 0;
-            left: 5px;
-        }
-        .arm {
-            width: 10px;
-            height: 20px;
-            background-color: #ff80b3;
-            border-radius: 5px;
-            position: absolute;
-            top: 25px;
-        }
-        .arm.left { left: -10px; }
-        .arm.right { right: -10px; }
-        audio {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            z-index: -1;
         }
         .code-container {
             position: absolute;
@@ -151,14 +83,92 @@
             font-size: 1.2em;
             margin-top: 20px;
         }
+        .character-container {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            animation: moveCharacters 10s linear infinite;
+        }
+        @keyframes moveCharacters {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        .character {
+            width: 60px;
+            height: 100px;
+            background-color: #ffcccc;
+            border-radius: 10px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            animation: jump 1.5s ease-in-out infinite;
+        }
+        @keyframes jump {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+            100% { transform: translateY(0); }
+        }
+        .head {
+            width: 40px;
+            height: 40px;
+            background-color: #ffe6e6;
+            border-radius: 50%;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #ff4da6;
+        }
+        .eye {
+            width: 8px;
+            height: 8px;
+            background-color: #000;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .eye.left { left: 7px; top: 10px; }
+        .eye.right { right: 7px; top: 10px; }
+        .body {
+            width: 50px;
+            height: 50px;
+            background-color: #ff80b3;
+            border-radius: 8px;
+            position: absolute;
+            bottom: 0;
+            left: 5px;
+        }
+        .arm {
+            width: 15px;
+            height: 25px;
+            background-color: #ff66cc;
+            border-radius: 5px;
+            position: absolute;
+            top: 20px;
+        }
+        .arm.left { left: -12px; }
+        .arm.right { right: -12px; }
+        audio {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: -1;
+        }
     </style>
 </head>
 <body>
+    <div id="intro"></div>
     <audio autoplay loop>
         <source src="your-music-file.mp3" type="audio/mpeg">
         Votre navigateur ne supporte pas l'élément audio.
     </audio>
-    <h1>Bienvenue dans la Bikouquête !</h1>
+    <h1>La Bikouquette</h1>
     <div class="code-container">
         <p>Entrez votre code secret pour commencer :</p>
         <input type="text" id="codeInput" placeholder="Entre ton code ici">
@@ -195,17 +205,16 @@
             <div class="arm right"></div>
         </div>
     </div>
-        // Fonction pour vérifier le code secret
+    <script>
         function checkCode() {
             const code = document.getElementById('codeInput').value;
-            const correctCode = "BIKOU123"; // Change le code ici pour l'adapter
+            const correctCode = "BIKOU123"; 
             if (code === correctCode) {
-                window.location.href = "https://exemple.com/nouvelle-page"; // Remplace par la page suivante
+                window.location.href = "page2.html"; 
             } else {
                 document.getElementById('result').innerHTML = "Code incorrect, réessaie !";
             }
         }
     </script>
-
 </body>
 </html>
