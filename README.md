@@ -54,11 +54,11 @@
             border-radius: 5px;
             text-align: center;
             width: 400px;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
-            animation: heartbeat 2.5s infinite;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.7);
+            animation: heartbeat 4s infinite;
         }
         .main-container p {
-            font-size: 1.2rem;
+            font-size: 1.8rem;
         }
         input {
             padding: 15px;
