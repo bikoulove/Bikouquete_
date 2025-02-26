@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -98,30 +97,6 @@
         button:hover {
             background: linear-gradient(45deg, #ff6600, #ff0000);
         }
-        /* Ondulations du fond */
-        .wave {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 500px;
-            height: 500px;
-            border-radius: 50%;
-            background: rgba(0, 255, 0, 0.2);
-            box-shadow: 0 0 60px rgba(0, 255, 0, 0.4);
-            animation: waveMovement 2.5s linear infinite;
-        }
-        @keyframes waveMovement {
-            0% {
-                transform: translate(-50%, -50%) scale(0.8);
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(1.2);
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(0.8);
-            }
-        }
         /* Effet de suivi du curseur */
         .cursor-wave {
             position: absolute;
@@ -138,18 +113,18 @@
         .cursor-wave div {
             position: absolute;
             border-radius: 50%;
-            width: 80px;
-            height: 80px;
-            background-color: rgba(0, 255, 0, 0.4);
-            animation: cursorRipple 1.2s linear infinite;
+            width: 50px; /* Taille plus petite */
+            height: 50px;
+            background: linear-gradient(45deg, rgba(0, 255, 0, 0.7), rgba(0, 255, 255, 0.5), rgba(255, 0, 255, 0.7)); /* Dégradé de couleur */
+            animation: cursorRipple 2.5s ease-out infinite; /* Durée plus longue */
         }
         @keyframes cursorRipple {
             0% {
                 transform: scale(0.5);
-                opacity: 0.5;
+                opacity: 0.7;
             }
             100% {
-                transform: scale(3);
+                transform: scale(2.5);
                 opacity: 0;
             }
         }
@@ -202,10 +177,10 @@
         document.body.addEventListener("mousemove", function(event) {
             const cursorWave = document.querySelector('.cursor-wave');
             const waveDiv = document.createElement('div');
-            waveDiv.style.top = `${event.clientY - 40}px`;
-            waveDiv.style.left = `${event.clientX - 40}px`;
+            waveDiv.style.top = `${event.clientY - 25}px`; // Positionnement plus précis
+            waveDiv.style.left = `${event.clientX - 25}px`; // Positionnement plus précis
             cursorWave.appendChild(waveDiv);
-            setTimeout(() => waveDiv.remove(), 1200);
+            setTimeout(() => waveDiv.remove(), 2500); // Supprime après un certain temps
         });
     </script>
 </body>
