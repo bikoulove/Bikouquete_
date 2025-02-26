@@ -32,7 +32,7 @@
             width: 100%;
             height: 100%;
             background-color: white;
-            animation: fadeIn 1.5s ease-in-out;
+            animation: fadeIn 1.5s ease-in-out forwards;
         }
         @keyframes fadeIn {
             from {
