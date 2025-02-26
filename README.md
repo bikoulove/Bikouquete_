@@ -7,7 +7,7 @@
     <style>
         body {
             /* Ajout de l'image en fond */
-            background-image: url('https://www.rockpapershotgun.com/cyberpunk-2077-netflix-anime-series-announced-cyberpunk-edgerunners'); /* Remplacer par l'URL de l'image */
+            background-image: url(''); /* Remplacer par l'URL de l'image */
             background-size: cover;  /* L'image couvre toute la page */
             background-position: center;
             background-attachment: fixed;
