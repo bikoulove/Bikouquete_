@@ -16,7 +16,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
             overflow: hidden;
             position: relative;
         }
@@ -37,29 +36,19 @@
             background-image: inherit;
             background-size: cover;
             background-position: center;
-            animation: heartbeat 0.5s infinite;
+            animation: heartbeat 2.5s infinite;
         }
-        .title-container {
+        .main-container {
             background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px;
+            padding: 30px;
             border-radius: 15px;
             text-align: center;
             width: 400px;
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
-            animation: heartbeat 0.5s infinite;
+            animation: heartbeat 2.5s infinite;
         }
-        h1 {
-            font-size: 2.5rem;
-            color: white;
-            margin-bottom: 15px;
-        }
-        .code-container {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            width: 350px;
-            box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
+        .main-container p {
+            font-size: 1.2rem;
         }
         input {
             padding: 15px;
@@ -97,10 +86,8 @@
 </head>
 <body>
     <div class="background-container"></div>
-    <div class="title-container">
-        <h1>La Bikouquête</h1>
-    </div>  
-    <div class="code-container">
+    <div class="main-container">
+        <p style="font-size: 2rem; font-weight: bold;">La Bikouquête</p>
         <p>Entrez le code secret pour avancer</p>
         <input type="text" id="codeInput" placeholder="Code secret...">
         <br>
