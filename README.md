@@ -3,221 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Bikouquette</title>
+    <title>La Bikouquête</title>
     <style>
+        /* Police 8-bit */
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        /* Corps de la page */
         body {
-            background-color: #ff4da6;
             font-family: 'Press Start 2P', cursive;
-            color: #fff;
-            text-align: center;
             margin: 0;
             padding: 0;
+            background: linear-gradient(135deg, #ff8eb5, #7f7fff);
+            animation: colorChange 2s infinite alternate;
             overflow: hidden;
         }
-        h1, p {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 40px;
-            text-transform: uppercase;
-            color: #fff;
-        }
-        .container {
-            position: relative;
-            height: 100vh;
-            background-color: #ff007f;
-            overflow: hidden;
-        }
-        .character {
-            position: absolute;
-            bottom: 10%;
-            animation: dance 1.5s infinite;
-        }
-      .blonde {
-            left: 10%;
-            width: 40px;
-            height: 80px;
-            background-color: #FFD700;
-            border-radius: 5px;
-            position: relative;
-        }
-        .blonde .head {
-            width: 20px;
-            height: 20px;
-            background-color: #FFD700;
-            border-radius: 50%;
-            position: absolute;
-            top: -20px;
-            left: 10px;
-        }
-        .blonde .eyes {
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            color: blue;
-            font-size: 4px;
-        }
-        .blonde .body {
-            width: 100%;
-            height: 60px;
-            background-color: #f5b300;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-        }
-        .blonde .legs {
-            position: absolute;
-            width: 100%;
-            height: 20px;
-            bottom: -20px;
-            background-color: #964B00;
-        }
-        .blonde .arms {
-            position: absolute;
-            top: 15px;
-            width: 100%;
-            height: 20px;
-            background-color: #f5b300;
-        }
-        .brunette {
-            left: 50%;
-            width: 40px;
-            height: 80px;
-            background-color: #6A4E23;
-            border-radius: 5px;
-            position: relative;
-        }
-        .brunette .head {
-            width: 20px;
-            height: 20px;
-            background-color: #6A4E23;
-            border-radius: 50%;
-            position: absolute;
-            top: -20px;
-            left: 10px;
-        }
-        .brunette .eyes {
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            color: blue;
-            font-size: 4px;
-        }
-        .brunette .body {
-            width: 100%;
-            height: 60px;
-            background-color: #f5b300;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-        }
-        .brunette .legs {
-            position: absolute;
-            width: 100%;
-            height: 20px;
-            bottom: -20px;
-            background-color: #964B00;
-        }
-        .brunette .arms {
-            position: absolute;
-            top: 15px;
-            width: 100%;
-            height: 20px;
-            background-color: #f5b300;
-        }
-        @keyframes dance {
-            0%, 100% {
-                transform: rotate(0deg);
-            }
-            25% {
-                transform: rotate(5deg);
+        /* Animation de dégradé */
+        @keyframes colorChange {
+            0% {
+                background: linear-gradient(135deg, #ff8eb5, #7f7fff);
             }
             50% {
-                transform: rotate(-5deg);
-            }
-            75% {
-                transform: rotate(3deg);
-            }
-        }
-        .code-container {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 30px;
-            border-radius: 15px;
-            width: 60%;
-            margin: 0 auto;
-            color: #fff;
-            font-size: 25px;
-            text-align: center;
-            margin-top: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            background-color: #ff007f;
-        }
-        input {
-            padding: 15px;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            text-align: center;
-            width: 80%;
-            margin-bottom: 20px;
-        }
-        button {
-            margin-top: 15px;
-            padding: 10px 20px;
-            font-size: 18px;
-            border: none;
-            border-radius: 5px;
-            background: #ff4da6;
-            color: white;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        button:hover {
-            background: #ff007f;
-        }
-        @keyframes fadeInBackground {
-            0% {
-                background-color: #ffffff;
+                background: linear-gradient(135deg, #ff007f, #00aaff);
             }
             100% {
-                background-color: #ff4da6;
+                background: linear-gradient(135deg, #f9c7d9, #34b8db);
             }
         }
-        .fade-in-background {
-            animation: fadeInBackground 2s forwards;
+        /* Titre de la page */
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 40px;
+            margin-top: 20px;
+        }
+        /* Zone pour entrer le code secret */
+        .code-section {
+            width: 80%;
+            margin: 100px auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            text-align: center;
+        }
+        .code-section input {
+            padding: 10px;
+            font-size: 20px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: white;
+            width: 50%;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .code-section button {
+            background-color: #ff007f;
+            color: white;
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .code-section button:hover {
+            background-color: #ff4da6;
+        }
+        /* Personnages animés en bas de la page */
+        .characters {
+            position: fixed;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            animation: move 4s linear infinite;
+        }
+        .character {
+            width: 80px;
+            height: 80px;
+            background-color: #000;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/60/Pixel_Art_Pikachu_8bit.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: relative;
+            animation: jump 1s infinite alternate;
+        }
+        /* Animation de saut des personnages */
+        @keyframes jump {
+            0% {
+                bottom: 0;
+            }
+            100% {
+                bottom: 10px;
+            }
+        }
+        /* Animation de déplacement des personnages */
+        @keyframes move {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(300px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        /* Personnage 1 (blond) */
+        .character1 {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/a2/Pixel_Art_8bit_Character.png');
+        }
+        /* Personnage 2 (brun) */
+        .character2 {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/06/Pixel_Art_Pikachu_8bit.svg');
+        }
+        /* Zone interactive */
+        .interactive-zone {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
         }
     </style>
 </head>
-<body class="fade-in-background">
-    <div class="container">
-        <h1>La Bikouquette</h1>
-        <p>Rentre ton code secret pour avancer !</p>
-        <div class="character blonde">
-            <div class="head"></div>
-            <div class="eyes">● ●</div>
-            <div class="body"></div>
-            <div class="arms"></div>
-            <div class="legs"></div>
-        </div>
-        <div class="character brunette">
-            <div class="head"></div>
-            <div class="eyes">● ●</div>
-            <div class="body"></div>
-            <div class="arms"></div>
-            <div class="legs"></div>
-        </div>
-        <div class="code-container">
-            <p>Entre ton code secret !</p>
-            <input type="text" id="codeInput" placeholder="Code ici">
-            <br>
-            <button onclick="checkCode()">Valider</button>
-            <p id="result"></p>
-        </div>
+<body>
+    <h1>La Bikouquête</h1>
+    <!-- Zone de saisie du code secret -->
+    <div class="code-section">
+        <h2>Entrez votre code secret :</h2>
+        <input type="text" id="codeInput" placeholder="Entrez le code ici">
+        <br>
+        <button onclick="checkCode()">Valider</button>
+        <p id="result"></p>
+    </div>
+    <!-- Personnages animés en bas de la page -->
+    <div class="characters">
+        <div class="character character1"></div>
+        <div class="character character2"></div>
+    </div>
+    <div class="interactive-zone">
+        <h2>Discutons !</h2>
+        <p>Personnage 1: "T'as vu la nouvelle quête ?"</p>
+        <p>Personnage 2: "Ouais, je suis super excité de la commencer !" </p>
     </div>
     <script>
         function checkCode() {
             const code = document.getElementById('codeInput').value;
-            const correctCode = "xxx";
+            const correctCode = "XXX"; // Remplace par ton vrai code secret
             if (code === correctCode) {
-                window.location.href = "page2.html"; // Redirection vers la page 2
+                window.location.href = "page2.html"; // Redirige vers la deuxième page
             } else {
                 document.getElementById('result').innerHTML = "Code incorrect, réessaie !";
             }
