@@ -6,14 +6,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
     <style>
         body {
-            /* Ajout de l'image en fond */
-            background-image: url('https://raw.githubusercontent.com/bikoulove/La-Bikouquete/refs/heads/main/maxresdefault.jpg'); /* Remplacer par l'URL de l'image */
-            background-size: cover;  /* L'image couvre toute la page */
+            /* Fond de la page avec image depuis GitHub */
+            background-image: url('https://raw.githubusercontent.com/bikoulove/La-Bikouquete/refs/heads/main/maxresdefault.jpg'); /* URL de l'image */
+            background-size: cover;
             background-position: center;
             background-attachment: fixed;
             margin: 0;
             padding: 0;
-            height: 100vh;  /* Assure que l'image couvre toute la hauteur */
+            height: 100vh;
             font-family: 'Honk', sans-serif;
             color: white;
             display: flex;
@@ -45,43 +45,52 @@
                 opacity: 0;
             }
         }
-        /* Titre et texte */
+        /* Titre principal stylisé */
         h1 {
             text-align: center;
-            font-size: 3rem;
+            font-size: 4rem;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 10px rgba(0, 255, 0, 0.7);
+            text-shadow: 0 0 15px rgba(0, 255, 0, 1), 0 0 30px rgba(0, 255, 0, 0.7);
+            color: white;
+            font-weight: bold;
         }
+        /* Conteneur pour le code secret */
         .code-container {
             background-color: rgba(0, 0, 0, 0.7);
-            padding: 20px;
+            padding: 30px;
             border: 3px solid #00FF00;
-            border-radius: 10px;
+            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
         }
+        /* Champs de texte */
         input {
-            padding: 10px;
-            border: 1px solid #00FF00;
-            border-radius: 5px;
+            padding: 15px;
+            border: 2px solid #00FF00;
+            border-radius: 10px;
             background-color: transparent;
             color: white;
             font-size: 1.5rem;
-            margin-bottom: 15px;
-            width: 100%;
+            margin-bottom: 20px;
+            width: 250px;
+            text-align: center;
         }
+        /* Bouton de validation */
         button {
             background-color: #00FF00;
-            padding: 10px 20px;
+            padding: 15px 30px;
             font-size: 1.5rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
             transition: 0.3s;
             color: white;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
         }
         button:hover {
             background-color: #00cc00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 1);
         }
         /* Animation de transition de fond lors du chargement */
         .fade-in {
