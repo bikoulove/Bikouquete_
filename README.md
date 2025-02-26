@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -133,7 +132,6 @@
 </head>
 <body>
     <div class="background"></div>
-    <h1>La Bikouquête</h1>
     <div class="container">
         <input class="code-input" type="text" id="codeInput" placeholder="Entrez le code secret">
         <br>
