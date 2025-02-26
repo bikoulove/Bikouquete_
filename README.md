@@ -15,7 +15,7 @@
             margin: 0;
             padding: 0;
             height: 100vh;
-            font-family: 'Honk', sans-serif;
+            font-family: 'Shafarik', sans-serif;
             color: white;
             display: flex;
             justify-content: center;
