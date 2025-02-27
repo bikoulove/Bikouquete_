@@ -22,9 +22,8 @@
             flex-direction: column;
             overflow: hidden;
             position: relative;
-            animation: heartbeat 3s infinite;
-        }
-        @keyframes heartbeat {
+            animation: heartbeat 2.5s;
+        }        @keyframes heartbeat {
             0% { transform: scale(1); }
             40% { transform: scale(1.05); }
             50% { transform: scale(1); }
