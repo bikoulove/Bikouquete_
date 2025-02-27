@@ -5,29 +5,28 @@
     <title>Page 2</title>
     <style>
         body {
-            background-color: black;
+            background-color: black; /* Fond noir */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            font-family: 'Orbitron', sans-serif;
         }
-        .container {
-            background-color: black;
-            color: white;
+        .ok-box {
+            background-color: white; /* Fond blanc pour l'encadré */
+            color: black; /* Texte noir */
             padding: 50px;
-            border: 2px solid white;
             text-align: center;
-        }
-        h1 {
-            margin: 0;
-            font-size: 50px;
+            border: 3px solid black; /* Bordure noire autour de l'encadré */
+            font-size: 36px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>OK</h1>
+    <div class="ok-box">
+        OK
     </div>
 </body>
 </html>
