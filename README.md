@@ -10,7 +10,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 150vh;
+            height: 100vh;
             background-image: url('https://raw.githubusercontent.com/bikoulove/La-Bikouquete/refs/heads/main/maxresdefault.jpg');
             background-size: cover;
             background-position: center;
@@ -23,7 +23,7 @@
             text-align: center;
             color: white;
             animation: heartbeat 1s infinite alternate 2s;
-            width: 100%;
+            width: 150%;
         }
         input {
             display: block;
@@ -48,7 +48,7 @@
             font-size: 18px;
         }
         button:hover {
-            background: gray;
+            background: dark_green;
         }
         @keyframes heartbeat {
             0% { transform: scale(1); }
