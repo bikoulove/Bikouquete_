@@ -11,7 +11,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: url('URL_DE_VOTRE_IMAGE');
+            background-image: url('https://raw.githubusercontent.com/bikoulove/La-Bikouquete/refs/heads/main/maxresdefault.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
