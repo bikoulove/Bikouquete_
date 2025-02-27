@@ -4,12 +4,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Shafarik:wght@700&display=swap" rel="stylesheet"> <!-- Police plus épaisse -->
+    <link href="https://fonts.googleapis.com/css2?family=Shafarik:wght@700&display=swap" rel="stylesheet">
     <style>
         /* Effet de fondu au rose */
         @keyframes fadeInPink {
-            0% { background-color: transparent; }
-            100% { background-color: pink; }
+            0% {
+                background-color: transparent;
+            }
+            100% {
+                background-color: pink;
+            }
+        }
+        /* Animation du heartbeat modifié */
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            40% {
+                transform: scale(1.05);
+            }
+            50% {
+                transform: scale(1);
+            }
+            90% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        /* Pause après le heartbeat */
+        @keyframes stopHeartbeat {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
         body {
             background-image: url('https://raw.githubusercontent.com/bikoulove/La-Bikouquete/refs/heads/main/maxresdefault.jpg');
@@ -29,19 +60,6 @@
             position: relative;
             animation: fadeInPink 1.5s ease-out, heartbeat 2.5s infinite, stopHeartbeat 1s infinite;
         }
-        /* Animation du heartbeat modifié */
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            40% { transform: scale(1.05); }
-            50% { transform: scale(1); }
-            90% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        /* Pause après le heartbeat */
-        @keyframes stopHeartbeat {
-            0% { transform: scale(1); }
-            100% { transform: scale(1); }
-        }
         .shafarik-regular {
             font-family: "Shafarik", system-ui;
             font-weight: 700; /* Version plus épaisse de la police */
@@ -58,7 +76,7 @@
             width: 350px;
             position: relative;
             z-index: 10;
-        } 
+        }
         /* Titre sans contour noir */
         .title-container h1 {
             font-size: 3rem;
@@ -77,7 +95,7 @@
             margin-bottom: 20px;
             width: 250px;
             text-align: center;
-        } 
+        }
         /* Bouton */
         button {
             background-color: #00FF00;
@@ -132,7 +150,7 @@
     <div class="image-container">
         <img src="https://raw.githubusercontent.com/bikoulove/La-Bikouquete/refs/heads/main/DALL_E_2025-02-27_10.25.24_-_A_16-bit_pixel_art_of_a_blonde_girl_with_white_skin__wearing_heart-shaped_sunglasses_and_orange_boots._She_is_centered_in_the_image__with_a_transparen-removebg-preview.png" alt="Personnage sans fond">
     </div>
-   <script>
+    <script>
         function checkCode() {
             const code = document.getElementById('codeInput').value;
             const correctCode = "Bikou123";
