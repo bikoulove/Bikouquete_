@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>La Bikouquête</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Orbitron', sans-serif; }
@@ -11,39 +11,41 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: url('https://raw.githubusercontent.com/bikoulove/La-Bikouquete/refs/heads/main/maxresdefault.jpg');
+            background-image: url('URL_DE_VOTRE_IMAGE');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
         .overlay {
             background: rgba(0, 0, 0, 0.5);
-            padding: 20px;
+            padding: 22px;
             border-radius: 10px;
             text-align: center;
             color: white;
             animation: heartbeat 2s infinite alternate 2s;
+            width: 55%;
         }
         input {
             display: block;
-            width: 110%;
-            padding: 10px;
-            margin: 10px auto;
+            width: 120%;
+            padding: 12px;
+            margin: 15px auto;
             text-align: center;
             border: 2px solid white;
             background: rgba(0, 0, 0, 0.5);
             color: white;
-            font-size: 16px;
+            font-size: 18px;
         }
         button {
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
             background: white;
             color: black;
             cursor: pointer;
             transition: background 0.3s;
             display: block;
-            margin: 10px auto;
+            margin: 15px auto;
+            font-size: 18px;
         }
         button:hover {
             background: gray;
@@ -57,7 +59,6 @@
 </head>
 <body>
     <div class="overlay">
-        <h1>La Bikouquête</h1>
         <input type="text" id="code" placeholder="Entre le code secret pour continuer :p">
         <button onclick="verifierCode()">Valider</button>
         <p id="message" style="color: red; font-weight: bold;"></p>
