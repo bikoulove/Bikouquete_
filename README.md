@@ -18,12 +18,12 @@
         }
         .overlay {
             background: rgba(0, 0, 0, 0.5);
-            padding: 50px;
+            padding: 20px;
             border-radius: 10px;
             text-align: center;
             color: white;
             animation: heartbeat 1s infinite alternate 2s;
-            width: 55%;
+            width: 100%;
         }
         input {
             display: block;
@@ -34,7 +34,7 @@
             border: 2px solid white;
             background: rgba(0, 0, 0, 0.5);
             color: white;
-            font-size: 18px;
+            font-size: 20px;
         }
         button {
             padding: 12px 24px;
