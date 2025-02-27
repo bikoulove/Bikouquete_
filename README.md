@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -58,7 +59,7 @@
             flex-direction: column;
             overflow: hidden;
             position: relative;
-            animation: fadeInPink 1.5s ease-out, heartbeat 2.5s infinite, stopHeartbeat 1s infinite;
+            animation: heartbeat 2.5s infinite, stopHeartbeat 1s infinite;
         }
         .shafarik-regular {
             font-family: "Shafarik", system-ui;
@@ -85,7 +86,7 @@
             color: white;
             margin-bottom: 20px;
         }
-        /* Champ de texte */
+     /* Champ de texte */
         input {
             padding: 15px;
             border: 2px solid #00FF00;
@@ -136,6 +137,10 @@
         .image-container img {
             width: 100%;
         }
+        /* Effet de fondu rose lorsqu'on clique */
+        .fade-pink {
+            animation: fadeInPink 1.5s ease-out;
+        }
     </style>
 </head>
 <body>
@@ -144,7 +149,7 @@
         <p>Entre le code secret pour continuer :p</p>
         <input type="text" id="codeInput" placeholder="Code secret...">
         <br>
-        <button onclick="checkCode()">Valider</button>
+        <button onclick="applyFadeEffect()">Valider</button>
         <p id="result"></p>
     </div>
     <!-- Zone pour déposer l'image -->
@@ -152,14 +157,9 @@
         <img src="https://raw.githubusercontent.com/bikoulove/La-Bikouquete/refs/heads/main/DALL_E_2025-02-27_10.25.24_-_A_16-bit_pixel_art_of_a_blonde_girl_with_white_skin__wearing_heart-shaped_sunglasses_and_orange_boots._She_is_centered_in_the_image__with_a_transparen-removebg-preview.png" alt="Personnage sans fond">
     </div>
     <script>
-        function checkCode() {
-            const code = document.getElementById('codeInput').value;
-            const correctCode = "Bikou123";
-            if (code === correctCode) {
-                window.location.href = "page2.html";
-            } else {
-                document.getElementById('result').innerText = "Code incorrect, réessayez.";
-            }
+        function applyFadeEffect() {
+            // Ajouter l'effet de fondu au rose
+            document.body.classList.add('fade-pink');
         }
     </script>
 </body>
