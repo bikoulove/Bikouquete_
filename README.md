@@ -6,29 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shafarik&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-image: url('https://raw.githubusercontent.com/bikoulove/La-Bikouquete/refs/heads/main/maxresdefault.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            font-family: 'Shafarik', sans-serif;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            overflow: hidden;
-            position: relative;
-            animation: heartbeat 2.5s;
-        }        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            40% { transform: scale(1.05); }
-            50% { transform: scale(1); }
-            90% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        body
         }
         .shafarik-regular {
             font-family: "Shafarik", system-ui;
@@ -105,6 +83,30 @@
         .image-container img {
             width: 100%;
         }
+           @keyframes heartbeat {
+            0% { transform: scale(1); }
+            40% { transform: scale(1.05); }
+            50% { transform: scale(1); }
+            90% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        {
+            background-image: url('https://raw.githubusercontent.com/bikoulove/La-Bikouquete/refs/heads/main/maxresdefault.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            font-family: 'Shafarik', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            animation: heartbeat 2.5s;
+        }      
     </style>
 </head>
 <body>
