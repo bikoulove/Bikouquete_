@@ -1,8 +1,28 @@
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shafarik:wght@700&display=swap" rel="stylesheet">
     <style>
+        /* Effet de fondu au rose à l'ouverture */
+        @keyframes fadeInPink {
+            from {
+                background-color: rgb(255, 192, 203, 1);
+            }
+            to {
+                background-color: transparent;
+            }
+        }
+        /* Effet heartbeat */
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        /* Corps de la page */
         body {
             background-image: url('https://raw.githubusercontent.com/bikoulove/La-Bikouquete/refs/heads/main/maxresdefault.jpg');
             background-size: cover;
@@ -20,19 +40,9 @@
             text-align: center;
             overflow: hidden;
             position: relative;
-            animation: fadeInPink 5s ease-in-out, heartbeat 2s infinite alternate;
+            animation: fadeInPink 2s ease-in-out;
         }
-        @keyframes heartbeat {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
+        /* Conteneur du titre avec effet heartbeat */
         .title-container {
             background-color: rgba(0, 0, 0, 0.7);
             padding: 30px;
@@ -43,13 +53,16 @@
             width: 350px;
             position: relative;
             z-index: 10;
+            animation: heartbeat 2s infinite alternate;
         }
+        /* Titre */
         .title-container h1 {
             font-size: 3rem;
             text-align: center;
             color: white;
             margin-bottom: 20px;
         }
+        /* Champ de texte */
         input {
             padding: 15px;
             border: 2px solid #00FF00;
@@ -61,6 +74,7 @@
             width: 250px;
             text-align: center;
         }
+        /* Bouton */
         button {
             background-color: #00FF00;
             padding: 15px 30px;
@@ -75,6 +89,7 @@
             position: relative;
             z-index: 10;
         }
+        /* Effet sur le bouton au passage de la souris */
         button:hover {
             transform: scale(0.75);
             background-color: #00cc00;
@@ -83,6 +98,7 @@
     </style>
 </head>
 <body>
+    <!-- Conteneur du titre et du champ de code -->
     <div class="title-container">
         <h1>La Bikouquête</h1>
         <p>Entre le code secret pour continuer :</p>
