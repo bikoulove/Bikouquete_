@@ -65,7 +65,7 @@
             font-weight: 700; /* Version plus épaisse de la police */
             font-style: normal;
         }
-        /* Conteneur du cadre */
+        /* Conteneur du cadre avec effet heartbeat */
         .title-container {
             background-color: rgba(0, 0, 0, 0.7);
             padding: 30px;
@@ -76,6 +76,7 @@
             width: 350px;
             position: relative;
             z-index: 10;
+            animation: heartbeat 2.5s infinite;
         }
         /* Titre sans contour noir */
         .title-container h1 {
