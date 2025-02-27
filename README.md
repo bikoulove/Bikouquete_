@@ -7,41 +7,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shafarik:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* Effet de fondu au rose */
-        @keyframes fadeInPink {
-            0% {
-                background-color: transparent;
-            }
-            100% {
-                background-color: pink;
-            }
-        }
-        /* Animation du heartbeat modifié */
-        @keyframes heartbeat {
-            0% {
-                transform: scale(1);
-            }
-            40% {
-                transform: scale(1.05);
-            }
-            50% {
-                transform: scale(1);
-            }
-            90% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-        /* Pause après le heartbeat */
-        @keyframes stopHeartbeat {
-            0% {
-                transform: scale(1);
-            }
-            100% {
-                transform: scale(1);
-            }
         }
         body {
             background-image: url('https://raw.githubusercontent.com/bikoulove/La-Bikouquete/refs/heads/main/maxresdefault.jpg');
@@ -60,11 +25,6 @@
             overflow: hidden;
             position: relative;
             animation: heartbeat 2.5s infinite, stopHeartbeat 1s infinite;
-        }
-        .shafarik-regular {
-            font-family: "Shafarik", system-ui;
-            font-weight: 700; /* Version plus épaisse de la police */
-            font-style: normal;
         }
         /* Conteneur du cadre avec effet heartbeat */
         .title-container {
@@ -136,10 +96,6 @@
         /* Image sans mouvement, uniquement positionnée */
         .image-container img {
             width: 100%;
-        }
-        /* Effet de fondu rose lorsqu'on clique */
-        .fade-pink {
-            animation: fadeInPink 1.5s ease-out;
         }
     </style>
 </head>
