@@ -1,115 +1,86 @@
-<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Shafarik:wght@700&display=swap" rel="stylesheet">
+    <title>La Bikouquête</title>
     <style>
-        /* Effet de fondu au rose à l'ouverture */
-        @keyframes fadeInPink {
-            from {
-                background-color: rgb(255, 192, 203, 1);
-            }
-            to {
-                background-color: transparent;
-            }
-        }
-        /* Effet heartbeat */
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        /* Corps de la page */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
         body {
-            background-image: url('https://raw.githubusercontent.com/bikoulove/La-Bikouquete/refs/heads/main/maxresdefault.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            font-family: 'Shafarik', sans-serif;
-            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            text-align: center;
-            overflow: hidden;
-            position: relative;
-            animation: fadeInPink 2s ease-in-out;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 2s ease-in-out;
         }
-        /* Conteneur du titre avec effet heartbeat */
-        .title-container {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 30px;
-            border: 3px solid #00FF00;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
-            width: 350px;
-            position: relative;
-            z-index: 10;
-            animation: heartbeat 2s infinite alternate;
-        }
-        /* Titre */
-        .title-container h1 {
-            font-size: 3rem;
+        .fade-in { opacity: 1; }
+        .overlay {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
             text-align: center;
             color: white;
-            margin-bottom: 20px;
+            animation: heartbeat 2s infinite alternate 2s;
         }
-        /* Champ de texte */
         input {
-            padding: 15px;
-            border: 2px solid #00FF00;
-            border-radius: 10px;
-            background-color: transparent;
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            width: 250px;
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
             text-align: center;
-        }
-        /* Bouton */
-        button {
-            background-color: #00FF00;
-            padding: 15px 30px;
-            font-size: 1.5rem;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 0.3s;
+            border: 2px solid white;
+            background: rgba(0, 0, 0, 0.5);
             color: white;
-            font-weight: bold;
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
-            position: relative;
-            z-index: 10;
+            font-size: 16px;
         }
-        /* Effet sur le bouton au passage de la souris */
+        button {
+            padding: 10px 20px;
+            border: none;
+            background: white;
+            color: black;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
         button:hover {
-            transform: scale(0.75);
-            background-color: #00cc00;
-            box-shadow: 0 0 30px rgba(0, 255, 0, 1);
+            background: gray;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .pink-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: pink;
+            z-index: 999;
+            animation: fadeOut 2s forwards;
+        }
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; display: none; }
         }
     </style>
 </head>
 <body>
-    <!-- Conteneur du titre et du champ de code -->
-    <div class="title-container">
+    <div class="pink-screen"></div>
+    <div class="overlay">
         <h1>La Bikouquête</h1>
-        <p>Entre le code secret pour continuer :</p>
-        <input type="text" id="codeInput" placeholder="Code secret...">
-        <br>
-        <button onclick="applyFadeEffect()">Valider</button>
-        <p id="result"></p>
+        <input type="text" id="code" placeholder="Entre le code secret pour continuer :p">
+        <button onclick="verifierCode()">Valider</button>
+        <p id="message" style="color: red; font-weight: bold;"></p>
     </div>
     <script>
-        function applyFadeEffect() {
-            document.body.classList.add('fade-pink');
+        document.body.style.opacity = "0";
+        window.onload = () => { document.body.classList.add("fade-in"); };
+        function verifierCode() {
+            const codeSaisi = document.getElementById("code").value;
+            if (codeSaisi === "Bikou42") {
+                window.location.href = "page2.html";
+            } else {
+                document.getElementById("message").textContent = "Rééssaye !";
+            }
         }
     </script>
 </body>
