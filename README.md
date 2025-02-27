@@ -24,7 +24,7 @@
             text-align: center;
             overflow: hidden;
             position: relative;
-            animation: fadeInPink 2s ease-in-out, heartbeat 2s infinite alternate;
+            animation: fadeInPink 5s ease-in-out, heartbeat 2s infinite alternate;
         }
         @keyframes fadeInPink {
             from {
