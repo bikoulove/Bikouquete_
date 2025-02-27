@@ -64,13 +64,20 @@
         <p id="message" style="color: red; font-weight: bold;"></p> <!-- Zone pour afficher "Rééssaye !" -->
     </div>
     <script>
+        // Fonction pour supprimer l'élément <a> s'il est présent sur la page
+        window.onload = function() {
+            var linkElement = document.querySelector('a[href="https://bikoulove.github.io/La-Bikouquete/"]');
+            if (linkElement) {
+                linkElement.style.display = 'none'; // Masquer le lien
+            }
+        };
+        // Fonction de vérification du mot de passe
         function checkPassword() {
             var correctPassword = "monmotdepasse"; // Mot de passe correct
             var enteredPassword = document.getElementById("password").value;
             if (enteredPassword !== correctPassword) {
                 document.getElementById("password").value = ""; // Effacer le texte du champ input
                 document.getElementById("message").textContent = "Rééssaye !"; // Afficher "Rééssaye !" dans le paragraphe
-                alert("Mot de passe incorrect !");
             }
         }
     </script>
