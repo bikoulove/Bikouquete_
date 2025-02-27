@@ -1,7 +1,9 @@
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Orbitron', sans-serif; }
@@ -15,6 +17,13 @@
             background-position: center;
             background-attachment: fixed;
         }
+        .overlay {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            animation: heartbeat 2s infinite alternate 2s;
         }
         input {
             display: block;
@@ -25,8 +34,7 @@
             border: 2px solid white;
             background: rgba(0, 0, 0, 0.5);
             color: white;
-            font-size: 16px
-            animation: heartbeat 2s infinite alternate 2;
+            font-size: 16px;
         }
         button {
             padding: 10px 20px;
