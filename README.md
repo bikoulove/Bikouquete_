@@ -2,14 +2,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Bikouquête</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Orbitron', sans-serif; }
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-image: url('URL_DE_VOTRE_IMAGE');
             background-size: cover;
             background-position: center;
             transition: opacity 2s ease-in-out;
@@ -25,7 +26,7 @@
         }
         input {
             display: block;
-            width: 100%;
+            width: 110%;
             padding: 10px;
             margin: 10px 0;
             text-align: center;
