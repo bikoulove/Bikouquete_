@@ -73,7 +73,7 @@
         };
         // Fonction de vérification du mot de passe
         function checkPassword() {
-            var correctPassword = "monmotdepasse"; // Mot de passe correct
+            var correctPassword = "Dorina"; // Mot de passe correct
             var enteredPassword = document.getElementById("password").value;
             if (enteredPassword !== correctPassword) {
                 document.getElementById("password").value = ""; // Effacer le texte du champ input
