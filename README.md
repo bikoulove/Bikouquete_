@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -20,9 +21,10 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            text-align: center;
             overflow: hidden;
             position: relative;
-            animation: fadeInPink 2s ease-in-out;
+            animation: fadeInPink 2s ease-in-out, heartbeat 2s infinite alternate;
         }
         @keyframes fadeInPink {
             from {
@@ -30,6 +32,17 @@
             }
             to {
                 background-color: transparent;
+            }
+        }
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
             }
         }
         .title-container {
@@ -79,28 +92,6 @@
             background-color: #00cc00;
             box-shadow: 0 0 30px rgba(0, 255, 0, 1);
         }
-        .animation-container {
-            width: 200px;
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-            background-color: rgba(0, 0, 0, 0.5);
-            border: 2px solid #00FF00;
-        }
-        .sprite {
-            width: 1000px;
-            height: 200px;
-            background: url('sprite.png') no-repeat;
-            animation: animateSprite 1s steps(10) infinite;
-        }
-        @keyframes animateSprite {
-            from {
-                transform: translateX(0);
-            }
-            to {
-                transform: translateX(-1000px);
-            }
-        }
     </style>
 </head>
 <body>
@@ -111,9 +102,6 @@
         <br>
         <button onclick="applyFadeEffect()">Valider</button>
         <p id="result"></p>
-    </div>
-    <div class="animation-container">
-        <div class="sprite"></div>
     </div>
     <script>
         function applyFadeEffect() {
