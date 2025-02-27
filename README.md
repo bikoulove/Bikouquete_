@@ -27,7 +27,7 @@
         }
         input {
             display: block;
-            width: 120%;
+            width: 100%;
             padding: 12px;
             margin: 15px auto;
             text-align: center;
