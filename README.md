@@ -23,7 +23,7 @@
             flex-direction: column;
             overflow: hidden;
             position: relative;
-            animation: heartbeat 2.5s infinite, stopHeartbeat 1s infinite;
+            animation: heartbeat 2s infinite, stopHeartbeat 1.5s infinite;
         }
         /* Conteneur du cadre avec effet heartbeat */
         .title-container {
