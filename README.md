@@ -70,6 +70,9 @@
                 window.location.href = "page2.html";
             } else {
                 document.getElementById("message").textContent = "Rééssaye !";
+                 if (enteredPassword !== correctPassword) {
+      document.getElementById("password").value = ""; // Effacer le texte
+      alert("Mot de passe incorrect !");
             }
         }
     </script>
