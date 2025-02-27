@@ -79,7 +79,7 @@
                 document.getElementById("password").value = "Dorina"; // Effacer le texte du champ input
                 document.getElementById("message").textContent = "Rééssaye !"; // Afficher "Rééssaye !" dans le paragraphe
             } else {
-                window.location.href = "page2.html"; // Rediriger vers la page2.html si le mot de passe est correct
+                window.location.href = "dossier/page2.html" // Rediriger vers la page2.html si le mot de passe est correct
             }
         }
     </script>
