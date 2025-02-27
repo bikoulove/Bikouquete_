@@ -59,17 +59,18 @@
 </head>
 <body>
     <div class="overlay">
-        <input type="text" id="code" placeholder="Entre le code secret pour continuer :p">
-        <button onclick="verifierCode()">Valider</button>
-        <p id="message" style="color: red; font-weight: bold;"></p>
+        <input type="password" id="password" placeholder="Entrez votre mot de passe" />
+        <button onclick="checkPassword()">Valider</button>
+        <p id="message" style="color: red; font-weight: bold;"></p> <!-- Zone pour afficher "Rééssaye !" -->
     </div>
     <script>
-        function verifierCode() {
-            const codeSaisi = document.getElementById("code").value;
-            if (codeSaisi === "Bikou42") {
-                window.location.href = "page2.html";
-            } else {
-                document.getElementById("message").textContent = "Rééssaye !";
+        function checkPassword() {
+            var correctPassword = "monmotdepasse"; // Mot de passe correct
+            var enteredPassword = document.getElementById("password").value;
+            if (enteredPassword !== correctPassword) {
+                document.getElementById("password").value = ""; // Effacer le texte du champ input
+                document.getElementById("message").textContent = "Rééssaye !"; // Afficher "Rééssaye !" dans le paragraphe
+                alert("Mot de passe incorrect !");
             }
         }
     </script>
