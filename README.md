@@ -18,11 +18,11 @@
         }
         .overlay {
             background: rgba(0, 0, 0, 0.5);
-            padding: 22px;
+            padding: 50px;
             border-radius: 10px;
             text-align: center;
             color: white;
-            animation: heartbeat 2s infinite alternate 2s;
+            animation: heartbeat 1s infinite alternate 2s;
             width: 55%;
         }
         input {
