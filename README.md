@@ -26,14 +26,6 @@
             position: relative;
             animation: fadeInPink 5s ease-in-out, heartbeat 2s infinite alternate;
         }
-        @keyframes fadeInPink {
-            from {
-                background-color: rgb(255, 192, 203, 1);
-            }
-            to {
-                background-color: transparent;
-            }
-        }
         @keyframes heartbeat {
             0% {
                 transform: scale(1);
