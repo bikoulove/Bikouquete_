@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Bikouquête</title>
+    <!-- Titre supprimé pour ne pas afficher de lien visible dans l'onglet -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Orbitron', sans-serif; }
@@ -70,9 +70,6 @@
                 window.location.href = "page2.html";
             } else {
                 document.getElementById("message").textContent = "Rééssaye !";
-                 if (enteredPassword !== correctPassword) {
-      document.getElementById("password").value = ""; // Effacer le texte
-      alert("Mot de passe incorrect !");
             }
         }
     </script>
