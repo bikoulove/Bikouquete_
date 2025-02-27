@@ -76,8 +76,10 @@
             var correctPassword = "Dorina"; // Mot de passe correct
             var enteredPassword = document.getElementById("password").value;
             if (enteredPassword !== correctPassword) {
-                document.getElementById("password").value = ""; // Effacer le texte du champ input
+                document.getElementById("password").value = "Dorina"; // Effacer le texte du champ input
                 document.getElementById("message").textContent = "Rééssaye !"; // Afficher "Rééssaye !" dans le paragraphe
+            } else {
+                window.location.href = "page2.html"; // Rediriger vers la page2.html si le mot de passe est correct
             }
         }
     </script>
