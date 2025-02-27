@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -33,10 +32,10 @@
             100% { transform: scale(1); }
         }
         .shafarik-regular {
-  font-family: "Shafarik", system-ui;
-  font-weight: 400;
-  font-style: normal;
-}
+            font-family: "Shafarik", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
         /* Conteneur du cadre */
         .title-container {
             background-color: rgba(0, 0, 0, 0.7);
@@ -89,6 +88,19 @@
             background-color: #00cc00;
             box-shadow: 0 0 30px rgba(0, 255, 0, 1);
         }
+        /* Image animée en bas à gauche */
+        .animated-image {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            width: 150px;
+            animation: moveImage 5s infinite alternate;
+        }
+        @keyframes moveImage {
+            0% { transform: translateX(0) translateY(0); }
+            50% { transform: translateX(20px) translateY(20px); }
+            100% { transform: translateX(0) translateY(0); }
+        }
     </style>
 </head>
 <body>
@@ -100,6 +112,7 @@
         <button onclick="checkCode()">Valider</button>
         <p id="result"></p>
     </div>
+    <img class="animated-image" src="https://raw.githubusercontent.com/bikoulove/La-Bikouquete/refs/heads/main/DALL_E_2025-02-27_10.25.24_-_A_16-bit_pixel_art_of_a_blonde_girl_with_white_skin__wearing_heart-shaped_sunglasses_and_orange_boots._She_is_centered_in_the_image__with_a_transparen-removebg-preview.png" alt="Personnage animé">
     <script>
         function checkCode() {
             const code = document.getElementById('codeInput').value;
