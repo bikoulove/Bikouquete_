@@ -2,7 +2,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Titre supprimé pour ne pas afficher de lien visible dans l'onglet -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Orbitron', sans-serif; }
@@ -61,25 +60,28 @@
     <div class="overlay">
         <input type="password" id="password" placeholder="Entrez votre mot de passe" />
         <button onclick="checkPassword()">Valider</button>
-        <p id="message" style="color: red; font-weight: bold;"></p> <!-- Zone pour afficher "Rééssaye !" -->
+        <p id="message" style="color: red; font-weight: bold;"></p>
     </div>
     <script>
-        // Fonction pour supprimer l'élément <a> s'il est présent sur la page
+        // Supprimer le lien parasite au chargement de la page
         window.onload = function() {
             var linkElement = document.querySelector('a[href="https://bikoulove.github.io/La-Bikouquete/"]');
             if (linkElement) {
-                linkElement.style.display = 'none'; // Masquer le lien
+                linkElement.style.display = 'none';
             }
         };
-        // Fonction de vérification du mot de passe
+
+        // Vérification du mot de passe
         function checkPassword() {
             var correctPassword = "Dorina"; // Mot de passe correct
-            var enteredPassword = document.getElementById("password").value;
-            if (enteredPassword !== correctPassword) {
-                document.getElementById("password").value = "Dorina"; // Effacer le texte du champ input
-                document.getElementById("message").textContent = "Rééssaye !"; // Afficher "Rééssaye !" dans le paragraphe
+            var passwordField = document.getElementById("password");
+            var message = document.getElementById("message");
+
+            if (passwordField.value !== correctPassword) {
+                message.textContent = "Rééssaye !"; // Afficher message d'erreur
+                passwordField.remove(); // Supprimer le champ de saisie
             } else {
-                window.location.href = "dossier/Dorina" // Rediriger vers la page2.html si le mot de passe est correct
+                window.location.href = "dossier/page2.html"; // Redirection vers la page 2
             }
         }
     </script>
